@@ -1,0 +1,35 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 6, 2022, 2:45:59 PM
+    Author     : Star
+*/
+
+
+.bg {
+    -fx-background-color: olivedrab;
+    -fx-background-image: url('../image/1.png');
+    -fx-background-size: 80%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-opacity: 0.8;
+}
+
+.bg_in {
+    -fx-background-color: lightblue;
+}
+
+HBox {
+    -fx-padding:5;
+    -fx-spacing: 5;
+    -fx-background-color: lightblue;
+    }
+
+VBox {
+    -fx-spacing:5;
+    -fx-background-color: olivedrab;
+    -fx-padding: 5;
+}
+

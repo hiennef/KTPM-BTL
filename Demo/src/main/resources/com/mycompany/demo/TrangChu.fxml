@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="937.0" styleClass="homepage" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="483.0" prefWidth="136.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#trangchu" prefHeight="31.0" prefWidth="110.0" stylesheets="@../css/style.css" text="Trang chủ">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#taobill" prefHeight="31.0" prefWidth="110.0" text="Thanh toán" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" text="Thẻ KH">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#theKH" text="Tạo thẻ KH mới" />
+                  <MenuItem mnemonicParsing="false" onAction="#TracuuKH" text="Tra cứu khách hàng" />
+               </items>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </MenuButton>
+            <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="111.0" text="Quản lý" textAlignment="CENTER">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#QLChiNhanh" text="Chi nhánh" />
+                <MenuItem mnemonicParsing="false" onAction="#QLNhanvien" text="Nhân Viên" />
+                  <MenuItem mnemonicParsing="false" onAction="#QLHanghoa" text="Hàng hóa" />
+              </items>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </MenuButton>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#taikhoan" prefHeight="31.0" prefWidth="110.0" text="Tài khoản">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="62.0" prefWidth="941.0" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OU Market" textAlignment="CENTER">
+               <font>
+                  <Font name="Calisto MT" size="21.0" />
+               </font>
+            </Text>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Bắt đầu ca">
+               <HBox.margin>
+                  <Insets left="170.0" right="50.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Kết thúc ca" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="homepage" />
+            <String fx:value="homepage" />
+         </styleClass>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="493.0" prefWidth="798.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="494.0" prefWidth="793.0" style="-fx-background-color: olivedrab;">
+               <children>
+                  <Text layoutX="40.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doanh thu ngày:" textAlignment="CENTER" wrappingWidth="146.2109375">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TextField layoutX="194.0" layoutY="13.0" prefHeight="31.0" prefWidth="422.0" />
+                  <Text layoutX="47.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giao dịch gần đây:" textAlignment="CENTER" wrappingWidth="146.2109375">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TableView layoutX="60.0" layoutY="112.0" prefHeight="298.0" prefWidth="690.0" styleClass=".bg_in">
+                    <columns>
+                      <TableColumn prefWidth="33.59994125366211" text="STT" />
+                      <TableColumn prefWidth="95.20008850097656" text="Ngày Chứng từ" />
+                        <TableColumn prefWidth="89.60005187988281" text="Mã đơn hàng" />
+                        <TableColumn prefWidth="87.199951171875" text="Mã sản phẩm" />
+                        <TableColumn prefWidth="59.20001220703125" text="Số lượng" />
+                        <TableColumn prefWidth="61.5999755859375" text="Xuất sứ" />
+                        <TableColumn prefWidth="60.0" text="Đơn giá" />
+                        <TableColumn prefWidth="96.7999267578125" text="Mã khách hàng" />
+                        <TableColumn prefWidth="117.60009765625" text="Mã nhân Viên" />
+                    </columns>
+                  </TableView>
+                  <Button alignment="CENTER" layoutX="639.0" layoutY="421.0" mnemonicParsing="false" onAction="#taikhoan" prefHeight="31.0" prefWidth="110.0" text="In báo cáo">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

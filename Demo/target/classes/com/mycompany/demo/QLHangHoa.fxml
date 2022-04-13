@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
+    <children>
+        <TabPane prefHeight="474.0" prefWidth="793.0">
+            <Tab fx:id="TabNhapXuatHang" text="Nhập/xuất hàng hóa">
+                <fx:include source="XuatNhapHang.fxml" />
+            </Tab>
+            <Tab fx:id="CapNhatHang" text="Cập nhật hàng hóa">
+                <fx:include source="CapNhatHang.fxml" />
+            </Tab>
+        </TabPane>
+            
+    </children>
+</AnchorPane>

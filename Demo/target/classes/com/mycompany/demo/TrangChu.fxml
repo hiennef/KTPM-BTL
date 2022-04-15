@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="937.0" styleClass="homepage" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="937.0" styleClass="homepage" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="483.0" prefWidth="136.0" BorderPane.alignment="CENTER">
          <children>
@@ -62,7 +62,7 @@
    <top>
       <HBox prefHeight="62.0" prefWidth="941.0" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OU Market" textAlignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OU Market">
                <font>
                   <Font name="Calisto MT" size="21.0" />
                </font>
@@ -83,6 +83,10 @@
                   <Font size="14.0" />
                </font>
             </Button>
+            <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#DangXuat" styleClass="btn-sign-out" stylesheets="@../css/style.css" text="Đăng xuất" textAlignment="RIGHT" textFill="#bf3131">
+               <HBox.margin>
+                  <Insets left="150.0" top="7.0" />
+               </HBox.margin></Button>
          </children>
          <styleClass>
             <String fx:value="homepage" />

@@ -95,4 +95,12 @@ public class TrangChudemo2Controller implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("QLHanghoa.fxml"));
         borderpane.setCenter(root);
     }
+    
+    public void DangXuat(ActionEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("dangNhap.fxml"));
+                stage =(Stage)((Node)e.getSource()).getScene().getWindow();
+                scene= new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+    }
 }

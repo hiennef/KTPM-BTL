@@ -5,6 +5,7 @@
 package com.mycompany.demo;
 
 
+import static com.mycompany.demo.DangNhapController.employee;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,8 +17,13 @@ import javafx.scene.Node;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
+import com.mycompany.pojo.Employee;
+import com.mycompany.pojo.Receipt;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -31,6 +37,10 @@ public class TrangChudemo2Controller implements Initializable {
 
     @FXML
     private BorderPane borderpane, borderpaneThemNV;
+    @FXML 
+    private Label lbusername;
+    @FXML 
+    private TableView<Receipt> tbReceipt;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -102,5 +112,9 @@ public class TrangChudemo2Controller implements Initializable {
                 scene= new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+    }
+    
+    public void setUser(Employee employee){
+        this.lbusername.setText(employee.getLastName());
     }
 }

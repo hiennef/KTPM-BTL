@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
@@ -83,10 +84,19 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#DangXuat" styleClass="btn-sign-out" stylesheets="@../css/style.css" text="Đăng xuất" textAlignment="RIGHT" textFill="#bf3131">
-               <HBox.margin>
-                  <Insets left="150.0" top="7.0" />
-               </HBox.margin></Button>
+            <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="237.0">
+               <children>
+                  <Label fx:id="lbusername" alignment="CENTER" styleClass="lbuser" text="username" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#DangXuat" prefHeight="30.0" prefWidth="80.0" styleClass="btn-sign-out" stylesheets="@../css/style.css" text="Đăng xuất" textAlignment="CENTER" textFill="#bf3131">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
          <styleClass>
             <String fx:value="homepage" />

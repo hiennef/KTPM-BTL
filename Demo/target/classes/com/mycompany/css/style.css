@@ -33,7 +33,7 @@ VBox {
     -fx-padding: 5;
 }
 
-Button.btn-sign-out{
-    -fx-alignment:TOP_RIGHT;
+.lbuser{
 }
+
 

@@ -1,6 +1,7 @@
 com\mycompany\pojo\Ward.class
 com\mycompany\demo\SecondaryController.class
 com\mycompany\demo\QLNhanVienController.class
+com\mycompany\demo\CustomerController.class
 com\mycompany\services\ReceiptDetailService.class
 com\mycompany\pojo\ReceiptDetail.class
 com\mycompany\demo\QLChiNhanhController.class
@@ -15,6 +16,7 @@ com\mycompany\pojo\ProductSubtype.class
 com\mycompany\pojo\Province.class
 com\mycompany\demo\TrangChudemo2Controller.class
 com\mycompany\pojo\Producer.class
+com\mycompany\demo\SearchCustomerController.class
 com\mycompany\pojo\Customer.class
 com\mycompany\services\ProductService.class
 com\mycompany\pojo\UserRole.class

@@ -5,6 +5,7 @@
 package com.mycompany.pojo;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  *
@@ -23,6 +24,17 @@ public class Customer {
     
     public Customer(){
         
+    }
+    
+    public Customer(int id, String lastName, Timestamp birthday, 
+            String phoneNumber, String cardId, int addressId, int genderId){
+        this.id = id;
+        this.lastName =lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.cardId = cardId;
+        this.addressId = addressId;
+        this.genderId = genderId;
     }
     
     public Customer(int id, String firstName, String lastName, 

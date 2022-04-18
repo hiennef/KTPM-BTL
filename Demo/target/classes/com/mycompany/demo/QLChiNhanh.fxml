@@ -4,14 +4,13 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="798.0" style="-fx-background-color: radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%) radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.QLChiNhanhController">
    <children>
       <LineChart layoutX="105.0" layoutY="36.0" prefHeight="194.0" prefWidth="518.0">
         <xAxis>
@@ -21,22 +20,13 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-      <Text fill="#940404" layoutX="266.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doanh thu tháng của các chi nhánh" wrappingWidth="275.54180908203125">
+      <Text fill="#940404" layoutX="266.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doanh thu tháng của các chi nhánh" wrappingWidth="275.54180908203125">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Text>
-      <TableView layoutX="55.0" layoutY="288.0" prefHeight="154.0" prefWidth="698.0">
-        <columns>
-          <TableColumn prefWidth="33.599971771240234" text="STT" />
-            <TableColumn prefWidth="91.99993896484375" text="Mã chi nhánh" />
-          <TableColumn prefWidth="135.19996643066406" text="Tên chi nhánh" />
-            <TableColumn prefWidth="172.0" text="Địa chỉ" />
-            <TableColumn prefWidth="150.4000244140625" text="Cửa hàng trưởng" />
-            <TableColumn prefWidth="115.199951171875" text="Hotline" />
-        </columns>
-      </TableView>
-      <TextField layoutX="513.0" layoutY="253.0" prefHeight="26.0" prefWidth="134.0" />
+      <TableView fx:id="tbStore" layoutX="55.0" layoutY="288.0" prefHeight="154.0" prefWidth="698.0" />
+      <TextField fx:id="txtKeyword" layoutX="513.0" layoutY="253.0" prefHeight="26.0" prefWidth="134.0" />
       <Button layoutX="654.0" layoutY="252.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Tìm kiếm">
          <font>
             <Font size="14.0" />

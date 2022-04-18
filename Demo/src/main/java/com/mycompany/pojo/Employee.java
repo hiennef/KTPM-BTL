@@ -48,21 +48,6 @@ public class Employee {
         this.storeId = storeId;
         this.genderId = genderId;
     }
-    
-    public Employee(String firstName, String lastName, Date birthday, 
-            String phoneNumber, String username, String password, String cardId,
-            int userRoleId, int storeId, int genderId){
-        this.firstName = firstName;
-        this.lastName =lastName;
-        this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
-        this.username = username;
-        this.password = password;
-        this.cardId = cardId;
-        this.userRoleId = userRoleId;
-        this.storeId = storeId;
-        this.genderId = genderId;
-    }
 
     /**
      * @return the id

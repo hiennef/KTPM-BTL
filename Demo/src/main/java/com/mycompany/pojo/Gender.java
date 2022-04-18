@@ -11,6 +11,7 @@ package com.mycompany.pojo;
 public class Gender {
     private int id;
     private String name;
+    private boolean check;
 
     public Gender(){
         
@@ -47,6 +48,20 @@ public class Gender {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the check
+     */
+    public boolean isCheck() {
+        return check;
+    }
+
+    /**
+     * @param check the check to set
+     */
+    public void setCheck(boolean check) {
+        this.check = check;
     }
     
     

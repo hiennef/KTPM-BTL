@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -60,4 +62,6 @@ public class EmployeeTester {
         System.out.println(e.getFirstName());
         Assertions.assertSame(e.getId(), 1);
     }
+   
+   
 }

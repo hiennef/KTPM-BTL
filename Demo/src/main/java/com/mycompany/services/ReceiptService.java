@@ -5,8 +5,10 @@
 package com.mycompany.services;
 
 import com.mycompany.conf.jdbcUtils;
+import com.mycompany.pojo.Customer;
 import com.mycompany.pojo.Receipt;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ public class ReceiptService {
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM receipt");
             
-           while(rs.next()){
+            while(rs.next()){
                Receipt r = new Receipt(rs.getInt("id"), 
                        rs.getTimestamp("created_date"), 
                        rs.getFloat("total_price"), rs.getInt("reward_point"),
@@ -35,5 +37,22 @@ public class ReceiptService {
             System.out.println(ex.getMessage());
         }
         return receipts;
+    }
+    
+    public Customer getCustomerById(int id){
+        Customer c = new Customer();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from customer WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                c.setId(rs.getInt("id"));
+                c.setLastName(rs.getString("last_name"));
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return c;
     }
 }

@@ -6,4 +6,5 @@ module com.mycompany.demo {
 
     opens com.mycompany.demo to javafx.fxml;
     exports com.mycompany.demo;
+    exports com.mycompany.pojo;
 }

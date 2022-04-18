@@ -5,6 +5,7 @@ D:\BT\KTPM\Demo\src\main\java\com\mycompany\services\ReceiptService.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\demo\DangNhapController.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\Product.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\demo\QLNhanVien.java
+D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\TableReceiptDetailData.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\Ward.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\demo\PrimaryController.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\demo\TrangChudemo2Controller.java
@@ -12,6 +13,7 @@ D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\ProductType.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\ReceiptDetail.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\Gender.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\services\EmployeeService.java
+D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\Customer.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\demo\SecondaryController.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\services\ProductService.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\conf\jdbcUtils.java
@@ -20,6 +22,7 @@ D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\Producer.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\Province.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\UserRole.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\Employee.java
+D:\BT\KTPM\Demo\src\main\java\com\mycompany\services\ReceiptDetailService.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\pojo\Store.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\demo\App.java
 D:\BT\KTPM\Demo\src\main\java\com\mycompany\conf\Utils.java

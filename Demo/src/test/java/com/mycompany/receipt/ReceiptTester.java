@@ -5,7 +5,9 @@
 package com.mycompany.receipt;
 
 import com.mycompany.conf.jdbcUtils;
+import com.mycompany.pojo.Product;
 import com.mycompany.pojo.Receipt;
+import com.mycompany.services.ReceiptDetailService;
 import com.mycompany.services.ReceiptService;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -34,13 +36,32 @@ public class ReceiptTester {
         }
     }
 
+//    @Test
+//    public void testDatabase() {
+//        ReceiptService rs = new ReceiptService();
+//        List<Receipt> re = rs.getReceipts();
+//        for(int i = 0; i<re.size();i++){
+//            System.out.println(re.get(i).getCreatedDate());
+//        }
+//    }
+    
     @Test
-    public void testDatabase() {
-        ReceiptService rs = new ReceiptService();
-        List<Receipt> re = rs.getReceipts();
-        for(int i = 0; i<re.size();i++){
-            System.out.println(re.get(i).getCreatedDate());
+    public void testRDDatabase(){
+        ReceiptDetailService rds = new ReceiptDetailService();
+        List<Product> re = rds.getProductsByReceiptId(6);
+        List<Receipt> rc = rds.getReceiptsByProductId(8);
+        System.out.println("---------------------------");
+        System.out.println("Test getReceiptsByProductId");
+        for(int i = 0; i<rc.size();i++){
+            System.out.println(rc.get(i).getTotalPrice());
         }
+        System.out.println("---------------------------");
+        System.out.println("Test getProductsByReceiptId");
+        for(int i = 0; i<re.size();i++){
+            System.out.println(re.get(i).getName());
+        }
+        System.out.println("---------------------------");
     }
+    
 
 }

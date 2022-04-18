@@ -38,10 +38,6 @@ public class EmployeeService {
                 e.setStoreId(rs.getInt("store_id"));
                 e.setGenderId(rs.getInt("gender_id"));
             }
-            
-            System.out.println(e.getId());
-            System.out.println(e.getUsername());
-            
         }
         catch(Exception ex){
             System.out.print(ex.getMessage());

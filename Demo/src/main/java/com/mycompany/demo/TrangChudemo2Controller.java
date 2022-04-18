@@ -23,7 +23,16 @@ import javafx.stage.Stage;
 
 import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.Receipt;
+import com.mycompany.pojo.TableReceiptDetailData;
+import com.mycompany.services.ReceiptDetailService;
+import com.mycompany.services.ReceiptService;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -40,11 +49,16 @@ public class TrangChudemo2Controller implements Initializable {
     @FXML 
     private Label lbusername;
     @FXML 
-    private TableView<Receipt> tbReceipt;
+    private TableView<TableReceiptDetailData> tbReceipt;
+      
+    private static final ReceiptService rs = new ReceiptService();
+    private static final ReceiptDetailService rds = new ReceiptDetailService();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        loadTableView();
+        loadTableData();
     }    
     @FXML
     private void trangchu(ActionEvent event) throws IOException
@@ -116,5 +130,58 @@ public class TrangChudemo2Controller implements Initializable {
     
     public void setUser(Employee employee){
         this.lbusername.setText(employee.getLastName());
+    }
+    
+    public void loadTableView(){
+        
+        TableColumn colSTT = new TableColumn("STT");
+        colSTT.setCellValueFactory(new PropertyValueFactory("soThuTu"));
+        colSTT.setPrefWidth(50);
+        
+        TableColumn colReceiptId = new TableColumn("Mã đơn hàng");
+        colReceiptId.setCellValueFactory(new PropertyValueFactory("receiptId"));
+        colReceiptId.setPrefWidth(50);
+        
+        TableColumn colCreatedDate = new TableColumn("Ngày chứng từ");
+        colCreatedDate.setCellValueFactory(new PropertyValueFactory("createdDate"));
+        colCreatedDate.setPrefWidth(130);
+        
+        TableColumn colProductName = new TableColumn("Tên sản phẩm");
+        colProductName.setCellValueFactory(new PropertyValueFactory("productName"));
+        colProductName.setPrefWidth(150);
+        
+        TableColumn colQuantity = new TableColumn("Số lượng");
+        colQuantity.setCellValueFactory(new PropertyValueFactory("quantity"));
+        colQuantity.setPrefWidth(60);
+        
+        TableColumn colProducerName = new TableColumn("Xuất xứ");
+        colProducerName.setCellValueFactory(new PropertyValueFactory("producerName"));
+        colProducerName.setPrefWidth(70);
+        
+        TableColumn colProductPrice = new TableColumn("Đơn giá");
+        colProductPrice.setCellValueFactory(new PropertyValueFactory("productPrice"));
+        colProductPrice.setPrefWidth(70);
+        
+        TableColumn colCustomerName = new TableColumn("Tên khách hàng");
+        colCustomerName.setCellValueFactory(new PropertyValueFactory("customerName"));
+        colCustomerName.setPrefWidth(50);
+        
+        TableColumn colEmployeeName = new TableColumn("Tên nhân viên");
+        colEmployeeName.setCellValueFactory(new PropertyValueFactory("employeeName"));
+        colEmployeeName.setPrefWidth(50);
+        
+        this.tbReceipt.getColumns().addAll(colSTT, colReceiptId,colCreatedDate, 
+                colProductName,colQuantity, colProducerName, colProductPrice,
+                colCustomerName, colEmployeeName);
+    }
+    
+    public void loadTableData(){
+        try{
+            this.tbReceipt.setItems(FXCollections.observableList(rds.getTbReceiptDetailData()));
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
     }
 }

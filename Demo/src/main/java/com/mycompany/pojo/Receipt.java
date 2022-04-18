@@ -34,6 +34,12 @@ public class Receipt {
         this.employeeId = employeeId;
     }
     
+    
+    public Receipt(int id, Timestamp createdDate){
+        this.id = id;
+        this.createdDate = createdDate;
+    }
+    
     /**
      * @return the id
      */

@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -120,19 +119,7 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <TableView layoutX="60.0" layoutY="112.0" prefHeight="298.0" prefWidth="690.0" styleClass=".bg_in">
-                    <columns>
-                      <TableColumn prefWidth="33.59994125366211" text="STT" />
-                      <TableColumn prefWidth="95.20008850097656" text="Ngày Chứng từ" />
-                        <TableColumn prefWidth="89.60005187988281" text="Mã đơn hàng" />
-                        <TableColumn prefWidth="87.199951171875" text="Mã sản phẩm" />
-                        <TableColumn prefWidth="59.20001220703125" text="Số lượng" />
-                        <TableColumn prefWidth="61.5999755859375" text="Xuất sứ" />
-                        <TableColumn prefWidth="60.0" text="Đơn giá" />
-                        <TableColumn prefWidth="96.7999267578125" text="Mã khách hàng" />
-                        <TableColumn prefWidth="117.60009765625" text="Mã nhân Viên" />
-                    </columns>
-                  </TableView>
+                  <TableView fx:id="tbReceipt" layoutX="60.0" layoutY="112.0" prefHeight="298.0" prefWidth="690.0" styleClass=".bg_in" />
                   <Button alignment="CENTER" layoutX="639.0" layoutY="421.0" mnemonicParsing="false" onAction="#taikhoan" prefHeight="31.0" prefWidth="110.0" text="In báo cáo">
                      <font>
                         <Font size="14.0" />

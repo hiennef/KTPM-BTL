@@ -26,12 +26,15 @@ import com.mycompany.pojo.Receipt;
 import com.mycompany.pojo.TableReceiptDetailData;
 import com.mycompany.services.ReceiptDetailService;
 import com.mycompany.services.ReceiptService;
+import java.sql.Date;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -50,6 +53,8 @@ public class TrangChudemo2Controller implements Initializable {
     private Label lbusername;
     @FXML 
     private TableView<TableReceiptDetailData> tbReceipt;
+    @FXML 
+    private TextField txtDoanhthu;
       
     private static final ReceiptService rs = new ReceiptService();
     private static final ReceiptDetailService rds = new ReceiptDetailService();
@@ -59,6 +64,7 @@ public class TrangChudemo2Controller implements Initializable {
         // TODO
         loadTableView();
         loadTableData();
+        loadDoanhthu();
     }    
     @FXML
     private void trangchu(ActionEvent event) throws IOException
@@ -189,5 +195,14 @@ public class TrangChudemo2Controller implements Initializable {
         catch(Exception ex){
             System.out.println(ex.getMessage());
         }
+    }
+    
+    public void loadDoanhthu(){
+        var now = Date.from(Instant.now());
+        System.out.println(now);
+        var year = now.getYear();
+        var month = now.getMonth();
+        var day = now.getDate();
+        this.txtDoanhthu.setText(String.valueOf(rs.tinhDoanhthu(new Date(year,month,day))));
     }
 }

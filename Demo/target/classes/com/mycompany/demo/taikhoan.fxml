@@ -12,9 +12,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="782.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
+<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="782.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
    <children>
-      <AnchorPane layoutX="6.0" layoutY="6.0" prefHeight="482.0" prefWidth="781.0" style="-fx-background-color: olivedrab;">
+      <AnchorPane layoutX="6.0" layoutY="6.0" prefHeight="482.0" prefWidth="781.0" style="-fx-background-color: radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%) radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%);">
          <children>
             <Button alignment="CENTER" layoutX="85.0" layoutY="409.0" mnemonicParsing="false" onAction="#taikhoan" prefHeight="26.0" prefWidth="175.0" text="Cập nhật thông tin">
                <font>

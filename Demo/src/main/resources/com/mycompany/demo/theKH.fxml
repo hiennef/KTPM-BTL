@@ -9,13 +9,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="782.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
    <children>
-      <AnchorPane prefHeight="474.0" prefWidth="782.0" style="-fx-background-color: olivedrab;">
+      <AnchorPane prefHeight="474.0" prefWidth="782.0" style="-fx-background-color: radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%); -fx-background-radius: 10;">
          <children>
             <Button alignment="CENTER" layoutX="75.0" layoutY="433.0" mnemonicParsing="false" onAction="#taikhoan" prefHeight="30.0" prefWidth="175.0" text="Thêm">
                <font>
@@ -27,10 +28,16 @@
                   <Font size="24.0" />
                </font>
                <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
+                  <LinearGradient endX="0.7774621212121212" endY="0.5748106205102169" startX="0.3371211841250911" startY="0.4232954545454547">
                      <stops>
-                        <Stop color="#07abf2" />
-                        <Stop color="WHITE" offset="1.0" />
+                        <Stop>
+                           <color>
+                              <Color red="0.027450980618596077" green="0.6705882549285889" blue="0.9490196108818054" />
+                           </color></Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.410526305437088" green="0.24175438284873962" blue="0.24175438284873962" />
+                           </color></Stop>
                      </stops>
                   </LinearGradient>
                </textFill>

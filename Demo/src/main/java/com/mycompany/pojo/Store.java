@@ -11,14 +11,14 @@ package com.mycompany.pojo;
 public class Store {
     private int id;
     private String name;
-    private char phoneNumber;
+    private String phoneNumber;
     private int addressId;
     
     public Store(){
         
     }
     
-    public Store(int id, String name, char phoneNumber, int addressId){
+    public Store(int id, String name, String phoneNumber, int addressId){
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -56,14 +56,14 @@ public class Store {
     /**
      * @return the phoneNumber
      */
-    public char getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
     /**
      * @param phoneNumber the phoneNumber to set
      */
-    public void setPhoneNumber(char phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

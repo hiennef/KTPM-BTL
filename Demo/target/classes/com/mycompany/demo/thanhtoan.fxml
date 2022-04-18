@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.6640184520758585" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.6640184520758585" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="782.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="473.0" prefWidth="550.0" style="-fx-text-color: red;">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="505.0" style="-fx-text-color: red; -fx-background-radius: 10;">
          <children>
             <TableView layoutX="11.0" layoutY="107.0" prefHeight="234.0" prefWidth="497.0">
               <columns>
@@ -99,7 +99,7 @@
                </font>
             </Text>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="503.0" prefWidth="298.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="503.0" prefWidth="298.0" style="-fx-background-radius: 10;">
          <children>
             <Label layoutX="7.0" layoutY="141.0" text="Tên sản phẩm:">
                <font>

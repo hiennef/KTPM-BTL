@@ -126,19 +126,32 @@ public class ReceiptDetailService {
         try(Connection conn = jdbcUtils.getConn()){
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM receipt_detail order by receipt_id");
-            int i =1;
+            int i = 1 ;
+            int rid = -1 ;
             while(rs.next()){
                 Receipt r = getReceiptById(rs.getInt("receipt_id"));
                 Product p = getProductById(rs.getInt("product_id"));
-                TableReceiptDetailData item = new TableReceiptDetailData(i, 
-                        r.getId(), r.getCreatedDate(), p.getName(), 
+                if(i>=2&&r.getId()==rid){
+                    TableReceiptDetailData item = new TableReceiptDetailData(r.getCreatedDate(), p.getName(), 
                         rs.getDouble("quantity"), 
                         ps.getProducerById(p.getProducerId()).getName(), 
                         p.getSalePrice(), rsv.getCustomerById(r.getCustomerId())
                                 .getLastName(), 
                         es.getEmployeeById(r.getEmployeeId()).getLastName());
-                i++;
-                data.add(item);
+                    data.add(item);
+                }
+                else{
+                    TableReceiptDetailData item = new TableReceiptDetailData(String.valueOf(i), 
+                        String.valueOf(r.getId()), r.getCreatedDate(), p.getName(), 
+                        rs.getDouble("quantity"), 
+                        ps.getProducerById(p.getProducerId()).getName(), 
+                        p.getSalePrice(), rsv.getCustomerById(r.getCustomerId())
+                                .getLastName(), 
+                        es.getEmployeeById(r.getEmployeeId()).getLastName());
+                    i++;
+                    data.add(item);
+                }
+                rid = r.getId();
             }
         }
         catch(Exception ex){

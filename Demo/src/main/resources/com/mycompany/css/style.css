@@ -33,7 +33,10 @@ VBox {
     -fx-padding: 5;
 }
 
-.lbuser{
+Button.btn-sign-out{
+}
+.homepage {
+    -fx-background-image: url("../image/bk.jpg");
 }
 
 

@@ -5,7 +5,7 @@
 package com.mycompany.demo;
 
 
-import static com.mycompany.demo.DangNhapController.employee;
+//import static com.mycompany.demo.DangNhapController.employee;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -120,6 +120,13 @@ public class TrangChudemo2Controller implements Initializable {
         borderpane.setCenter(root);
     }
     
+    @FXML
+    private void User(ActionEvent event) throws IOException
+    {
+        Parent root = FXMLLoader.load(getClass().getResource("User.fxml"));
+        borderpane.setCenter(root);
+    }
+    
     public void DangXuat(ActionEvent e) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("dangNhap.fxml"));
                 stage =(Stage)((Node)e.getSource()).getScene().getWindow();
@@ -182,6 +189,5 @@ public class TrangChudemo2Controller implements Initializable {
         catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        
     }
 }

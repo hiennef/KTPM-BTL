@@ -11,8 +11,8 @@ import java.sql.Timestamp;
  * @author HIEN
  */
 public class TableReceiptDetailData {
-    private int soThuTu;
-    private int receiptId;
+    private String soThuTu ;
+    private String receiptId;
     private Timestamp createdDate;
     private String productName;
     private double quantity;
@@ -25,7 +25,7 @@ public class TableReceiptDetailData {
         
     }
     
-    public TableReceiptDetailData(int soThuTu, int receiptId, 
+    public TableReceiptDetailData(String soThuTu, String receiptId, 
             Timestamp createdDate, String productName, double quantity, 
             String producerName, float productPrice, String customerName, 
             String employeeName){
@@ -39,32 +39,44 @@ public class TableReceiptDetailData {
         this.customerName = customerName;
         this.employeeName = employeeName;
     }
+    
+    public TableReceiptDetailData(Timestamp createdDate, String productName, 
+            double quantity, String producerName, float productPrice,
+            String customerName, String employeeName){
+        this.createdDate = createdDate;
+        this.productName = productName;
+        this.quantity = quantity;
+        this.producerName = producerName;
+        this.productPrice = productPrice;
+        this.customerName = customerName;
+        this.employeeName = employeeName;
+    }
 
     /**
      * @return the soThuTu
      */
-    public int getSoThuTu() {
+    public String getSoThuTu() {
         return soThuTu;
     }
 
     /**
      * @param soThuTu the soThuTu to set
      */
-    public void setSoThuTu(int soThuTu) {
+    public void setSoThuTu(String soThuTu) {
         this.soThuTu = soThuTu;
     }
 
     /**
      * @return the receiptId
      */
-    public int getReceiptId() {
+    public String getReceiptId() {
         return receiptId;
     }
 
     /**
      * @param receiptId the receiptId to set
      */
-    public void setReceiptId(int receiptId) {
+    public void setReceiptId(String receiptId) {
         this.receiptId = receiptId;
     }
 

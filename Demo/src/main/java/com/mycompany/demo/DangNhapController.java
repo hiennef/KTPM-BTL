@@ -45,8 +45,6 @@ public class DangNhapController {
                 scene= new Scene(root);
                 TrangChudemo2Controller controller = loader.getController();
                 controller.setUser(employee);
-//                controller.loadTableView();
-//                controller.loadTableData();
                 stage.setScene(scene);
                 stage.show();
             }

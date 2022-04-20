@@ -58,7 +58,7 @@ public class TrangChudemo2Controller implements Initializable {
       
     private static final ReceiptService rs = new ReceiptService();
     private static final ReceiptDetailService rds = new ReceiptDetailService();
-    private static Employee em = new Employee();
+    public static Employee em = new Employee();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

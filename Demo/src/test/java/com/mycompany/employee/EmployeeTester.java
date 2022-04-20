@@ -60,4 +60,12 @@ public class EmployeeTester {
         System.out.println(e.getFirstName());
         Assertions.assertSame(e.getId(), 1);
     }
+    
+    @Test
+    public void testShowEmployee(){
+        EmployeeService es = new EmployeeService();
+        Employee e = es.getEmployeeByUser("thuhien", "hihi");
+        System.out.println(e.getFirstName());
+        Assertions.assertSame(e.getId(), 1);
+    }
 }

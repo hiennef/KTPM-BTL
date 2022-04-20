@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +35,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Vi
  */
 public class SearchCustomerController extends TrangChudemo2Controller  {
+    private static final CustomerService c = new CustomerService();
     @FXML private TableView<Customer> tbCustomers;
     @FXML private TextField txtSearchCus;
     @FXML private TextField txtPoint;
@@ -41,17 +44,26 @@ public class SearchCustomerController extends TrangChudemo2Controller  {
     @Override
     public void initialize(URL url, ResourceBundle rb){
         loadTableView();
-        loadTableCus();
-        //this.txtSearchCus.textProperty().addListener((evt)->{
-        //    //oadTableCus(this.txtSearchCus.getText());
-        //});
+        //loadTableCus();
+        loadData(null);
+        this.txtSearchCus.textProperty().addListener((evt) -> {
+            loadData(this.txtSearchCus.getText());
+            
+        });
+    }
+    
+    
+    private void loadData(String kw) {
+        try {
+            this.tbCustomers.setItems(FXCollections.observableList(c.getCustomer(kw)));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override
     public void loadTableView(){
-        TableColumn colSTT = new TableColumn("STT");
-        colSTT.setCellValueFactory(new PropertyValueFactory("id"));
-        colSTT.setPrefWidth(50);
         
         TableColumn colId = new TableColumn("Mã KH");
         colId.setCellValueFactory(new PropertyValueFactory("id"));
@@ -67,11 +79,11 @@ public class SearchCustomerController extends TrangChudemo2Controller  {
         
         TableColumn colGender = new TableColumn("Giới tính");
         colGender.setCellValueFactory(new PropertyValueFactory("genderId"));
-        colGender.setPrefWidth(100);
+        colGender.setPrefWidth(90);
         
         TableColumn colAdderess = new TableColumn("Địa chỉ");
         colAdderess.setCellValueFactory(new PropertyValueFactory("addressId"));
-        colAdderess.setPrefWidth(150);
+        colAdderess.setPrefWidth(100);
         
         TableColumn colCard = new TableColumn("Số CMND");
         colCard.setCellValueFactory(new PropertyValueFactory("cardId"));
@@ -79,14 +91,18 @@ public class SearchCustomerController extends TrangChudemo2Controller  {
         
         TableColumn colPhone = new TableColumn("Số điện thoại");
         colPhone.setCellValueFactory(new PropertyValueFactory("phoneNumber"));
-        colPhone.setPrefWidth(150);
+        colPhone.setPrefWidth(100);
         
-        this.tbCustomers.getColumns().addAll(colId, colName, colBirth, colGender, colAdderess, colCard, colPhone);
+        TableColumn colPoint = new TableColumn("Điểm tích luỹ");
+        colPoint.setCellValueFactory(new PropertyValueFactory("availablePoint"));
+        colPoint.setPrefWidth(100);
+        
+        this.tbCustomers.getColumns().addAll(colId, colName, colBirth, colGender, colAdderess, colCard, colPhone, colPoint);
     }
     
-    private void loadTableCus(){
+    /*private void loadTableCus(){
         CustomerService s = new CustomerService();
         this.tbCustomers.setItems(FXCollections.observableList(s.getCustomer()));
     }
-    
+    */
 }

@@ -27,13 +27,25 @@ public class Customer {
     }
     
     public Customer(int id, String lastName, Timestamp birthday, 
-            String phoneNumber, String cardId, int addressId, int genderId){
+            String phoneNumber, String cardId,int availablePoint,  int addressId, int genderId){
         this.id = id;
         this.lastName =lastName;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.cardId = cardId;
+        this.availablePoint = availablePoint;
         this.addressId = addressId;
+        this.genderId = genderId;
+    }
+    
+    public Customer(int id, String firstName, String lastName, Timestamp birthday, 
+            String phoneNumber, String cardId, int genderId){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName =lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.cardId = cardId;
         this.genderId = genderId;
     }
     

@@ -24,6 +24,11 @@ public class Store {
         this.phoneNumber = phoneNumber;
         this.addressId = addressId;
     }
+    
+    @Override
+    public String toString(){
+        return this.name;
+    }
 
     /**
      * @return the id

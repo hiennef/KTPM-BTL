@@ -23,6 +23,11 @@ public class Ward {
         this.districtId = districtId;
     }
 
+    @Override
+    public String toString(){
+        return this.name;
+    }
+
     /**
      * @return the id
      */

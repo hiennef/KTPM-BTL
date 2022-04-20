@@ -63,4 +63,22 @@ public class StoreService {
             return cates;
         }
     }
+    
+    
+    public Store getStoreById(int id) throws SQLException{
+        Store s = new Store();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM store WHERE id LIKE ?");
+            pstm.setInt(1, id);
+
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                s.setId(rs.getInt("id"));
+                s.setName(rs.getString("name"));
+                s.setPhoneNumber(rs.getString("phone_number"));
+                s.setAddressId(rs.getInt("address_id"));
+            }
+        }
+        return s;
+    }
 }

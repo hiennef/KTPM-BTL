@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.fxml.FXML;
@@ -23,11 +24,10 @@ import javafx.scene.control.TableView;
  */
 public class CustomerService {
     
-    public List<Customer> getCustomer(){
+    /*public List<Customer> getCustomer(){
         List<Customer> listCus = new ArrayList<>();
         //Customer e = new Customer();
         try(Connection conn = jdbcUtils.getConn()){
-            String sql = "SELECT * FROM customer";
             Statement stm = conn.createStatement();
             
             ResultSet rs = stm.executeQuery("SELECT * FROM customer");
@@ -44,6 +44,55 @@ public class CustomerService {
             System.out.print(ex.getMessage());
         }
         return listCus;
-    }
+    }*/
     
+    public List<Customer> getCustomer(String kw) throws SQLException {
+       try (Connection conn = jdbcUtils.getConn()) {
+           PreparedStatement stm = conn.prepareStatement("SELECT * FROM customer WHERE id like concat('%', ?, '%')");
+           
+           if (kw == null)
+               kw = "";
+           stm.setString(1, kw);
+           
+           ResultSet rs = stm.executeQuery();
+           
+           List<Customer> cus = new ArrayList<>();
+           
+           while (rs.next()) {
+               
+               int id = rs.getInt("id");
+               String name = rs.getString("last_name");
+               Timestamp birth = rs.getTimestamp("birthday");
+               String phoneNumber = rs.getString("phone_number");
+               String cardid = rs.getString("card_id");
+               int availablePoint = rs.getInt("available_point");
+               int addressId = rs.getInt("address_id");
+               int gender = rs.getInt("gender_id");
+               
+               cus.add(new Customer(id, name, birth, phoneNumber, cardid, availablePoint, addressId, gender));
+           }
+           
+           return cus;
+       }
+     }
+    
+    public boolean addCustomer(Customer q) throws SQLException {
+        String q1 = "INSERT INTO customer(id, first_name, last_name, birthday, phone_number,"
+                + " card_id, address_id, gender_id ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+
+         try (Connection conn = jdbcUtils.getConn()) {
+//             conn.setAutoCommit(false);
+             PreparedStatement stm1 = conn.prepareStatement(q1);
+             stm1.setInt(1, q.getId());
+             stm1.setString(2, q.getFirstName());
+             stm1.setString(3, q.getLastName());
+             //stm1.setString(4, q.getBirthday());
+             stm1.setString(5, q.getPhoneNumber());
+             stm1.setString(9, q.getCardId());
+             stm1.setInt(13, q.getGenderId());
+
+             return stm1.executeUpdate()>0;
+             
+            }
+    }
 }  

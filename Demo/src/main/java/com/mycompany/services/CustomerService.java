@@ -25,28 +25,6 @@ import javafx.scene.control.TableView;
  */
 public class CustomerService {
     
-    /*public List<Customer> getCustomer(){
-        List<Customer> listCus = new ArrayList<>();
-        //Customer e = new Customer();
-        try(Connection conn = jdbcUtils.getConn()){
-            Statement stm = conn.createStatement();
-            
-            ResultSet rs = stm.executeQuery("SELECT * FROM customer");
-            
-            while(rs.next()){
-                Customer e = new Customer(rs.getInt("id"), rs.getString("first_name"),
-                        rs.getTimestamp("birthday"), rs.getString("phone_number"),
-                                rs.getString("card_id"), rs.getInt("address_id"), rs.getInt("gender_id"));
-                
-                listCus.add(e);
-            }
-        }
-        catch(Exception ex){
-            System.out.print(ex.getMessage());
-        }
-        return listCus;
-    }*/
-    
     public Gender getGenderById(int id){
         Gender p = new Gender();
         try(Connection conn = jdbcUtils.getConn()){
@@ -94,6 +72,18 @@ public class CustomerService {
            
            return cus;
         }
+    }
+    public boolean addPointCus(Customer c) throws SQLException{
+        String c1 = "INSERT INTO customer(id, available_point) VALUES(?,?)";
+        try (Connection conn = jdbcUtils.getConn()) {
+             conn.setAutoCommit(false);
+             PreparedStatement stm1 = conn.prepareStatement(c1);
+             stm1.setInt(1, c.getId());
+             stm1.setInt(2, c.getAvailablePoint());
+
+             conn.commit();
+            }
+        return false;
     }
     
     /*public boolean addCustomer(Customer q) throws SQLException {

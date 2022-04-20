@@ -26,6 +26,12 @@ public class Customer {
         
     }
     
+    
+    public Customer(int id, int availablePoint){
+        this.id = id;
+        this.availablePoint = availablePoint;
+    }
+    
     public Customer(int id, String lastName, Timestamp birthday, 
             String phoneNumber, String cardId,int availablePoint,  int addressId, String genderId){
         this.id = id;

@@ -20,14 +20,14 @@ public class Customer {
     private String cardId;
     private int availablePoint;
     private int addressId;
-    private int genderId;
+    private String genderId;
     
     public Customer(){
         
     }
     
     public Customer(int id, String lastName, Timestamp birthday, 
-            String phoneNumber, String cardId,int availablePoint,  int addressId, int genderId){
+            String phoneNumber, String cardId,int availablePoint,  int addressId, String genderId){
         this.id = id;
         this.lastName =lastName;
         this.birthday = birthday;
@@ -39,7 +39,7 @@ public class Customer {
     }
     
     public Customer(int id, String firstName, String lastName, Timestamp birthday, 
-            String phoneNumber, String cardId, int genderId){
+            String phoneNumber, String cardId, String genderId){
         this.id = id;
         this.firstName = firstName;
         this.lastName =lastName;
@@ -51,7 +51,7 @@ public class Customer {
     
     public Customer(int id, String firstName, String lastName, 
             Timestamp birthday, String phoneNumber, String cardId, 
-            int availablePoint, int addressId, int genderId){
+            int availablePoint, int addressId, String genderId){
         this.id = id;
         this.firstName = firstName;
         this.lastName  = lastName;
@@ -183,14 +183,14 @@ public class Customer {
     /**
      * @return the genderId
      */
-    public int getGenderId() {
+    public String getGenderId() {
         return genderId;
     }
 
     /**
      * @param genderId the genderId to set
      */
-    public void setGenderId(int genderId) {
+    public void setGenderId(String genderId) {
         this.genderId = genderId;
     }
     

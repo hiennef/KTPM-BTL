@@ -33,9 +33,7 @@ public class TaiKhoanController extends TrangChudemo2Controller{
     @FXML private TextField txtCard;
     @FXML private TextField txtPhone;
     @FXML private TextField txtStore;
-    @FXML private RadioButton rd1;
-    @FXML private RadioButton rd2;
-    @FXML private RadioButton rd3;
+    @FXML private TextField txtGender;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -44,6 +42,10 @@ public class TaiKhoanController extends TrangChudemo2Controller{
         txtName.setText(TrangChudemo2Controller.em.getFirstName());
         txtLastName.setText(TrangChudemo2Controller.em.getLastName());
         //dpBirthday.setDayCellFactory(TrangChudemo2Controller.em.getBirthday());
+        
+        txtGender.setText(es.getGenderById(TrangChudemo2Controller.em.getGenderId()).toString());
+        
+        
         txtAddress.setText(String.valueOf(TrangChudemo2Controller.em.getAddressId()));
         txtCard.setText(TrangChudemo2Controller.em.getCardId());
         txtPhone.setText(TrangChudemo2Controller.em.getPhoneNumber());

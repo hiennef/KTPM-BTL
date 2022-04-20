@@ -7,6 +7,7 @@ package com.mycompany.services;
 import com.mycompany.conf.jdbcUtils;
 import com.mycompany.pojo.Customer;
 import com.mycompany.pojo.Employee;
+import com.mycompany.pojo.Gender;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,6 +47,23 @@ public class CustomerService {
         return listCus;
     }*/
     
+    public Gender getGenderById(int id){
+        Gender p = new Gender();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from gender WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return p;
+    }
+        
     public List<Customer> getCustomer(String kw) throws SQLException {
        try (Connection conn = jdbcUtils.getConn()) {
            PreparedStatement stm = conn.prepareStatement("SELECT * FROM customer WHERE id like concat('%', ?, '%')");
@@ -60,6 +78,8 @@ public class CustomerService {
            
            while (rs.next()) {
                
+               Gender g = getGenderById(rs.getInt("gender_id"));
+               
                int id = rs.getInt("id");
                String name = rs.getString("last_name");
                Timestamp birth = rs.getTimestamp("birthday");
@@ -67,16 +87,16 @@ public class CustomerService {
                String cardid = rs.getString("card_id");
                int availablePoint = rs.getInt("available_point");
                int addressId = rs.getInt("address_id");
-               int gender = rs.getInt("gender_id");
+               String genderId = g.getName();
                
-               cus.add(new Customer(id, name, birth, phoneNumber, cardid, availablePoint, addressId, gender));
-           }
+               cus.add(new Customer(id, name, birth, phoneNumber, cardid, availablePoint, addressId, genderId));
+            }
            
            return cus;
-       }
-     }
+        }
+    }
     
-    public boolean addCustomer(Customer q) throws SQLException {
+    /*public boolean addCustomer(Customer q) throws SQLException {
         String q1 = "INSERT INTO customer(id, first_name, last_name, birthday, phone_number,"
                 + " card_id, address_id, gender_id ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -94,5 +114,5 @@ public class CustomerService {
              return stm1.executeUpdate()>0;
              
             }
-    }
+    }*/
 }  

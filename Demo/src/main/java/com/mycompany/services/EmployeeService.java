@@ -7,6 +7,7 @@ package com.mycompany.services;
 import com.mycompany.conf.jdbcUtils;
 import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.ExportDataTbEmployee;
+import com.mycompany.pojo.Gender;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,6 +48,24 @@ public class EmployeeService {
             System.out.print(ex.getMessage());
         }
         return e;
+    }
+    
+    
+    public Gender getGenderById(int id){
+        Gender p = new Gender();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from gender WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return p;
     }
     
     public Employee getEmployeeByUser(String username, String password){

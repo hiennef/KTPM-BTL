@@ -9,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.91" prefHeight="545.0" prefWidth="937.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%);" styleClass="bg" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.DangNhapController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.91" prefHeight="545.0" prefWidth="937.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%);" styleClass="bg" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.DangNhapController">
    <children>
-      <Pane layoutX="194.0" layoutY="111.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="517.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: gray;" styleClass="bg_in" stylesheets="@../css/style.css">
+      <Pane layoutX="194.0" layoutY="111.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#dangNhap" prefHeight="336.0" prefWidth="517.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: gray;" styleClass="bg_in" stylesheets="@../css/style.css">
          <children>
             <Label layoutX="29.0" layoutY="94.0" text="Tên đăng nhập:">
                <font>

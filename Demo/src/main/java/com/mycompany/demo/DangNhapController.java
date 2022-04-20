@@ -18,6 +18,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 /**
  *
@@ -33,6 +35,34 @@ public class DangNhapController {
     private static final EmployeeService es = new EmployeeService();
     public static Employee employee = new Employee();
     
+    @FXML
+    public void dangNhap(KeyEvent e){
+        if(e.getCode()==KeyCode.ENTER){
+            try{
+            employee = es.getEmployeeByUser(username.getText(), password.getText());
+                if (employee.getUserRoleId()==1 || employee.getUserRoleId()==2||
+                        employee.getUserRoleId()==3 || employee.getUserRoleId()==4){
+                    stage =(Stage)((Node)e.getSource()).getScene().getWindow();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("TrangChu.fxml"));
+                    Parent root = loader.load();
+                    scene= new Scene(root);
+                    TrangChudemo2Controller controller = loader.getController();
+                    controller.setUser(employee);
+                    controller.loadUser(employee);
+                    stage.setScene(scene);
+                    stage.show();
+                }
+                else {
+                    Utils.getBox("Không tìm thấy!", Alert.AlertType.ERROR).show();
+                }
+            }
+            catch(Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+    
     public void DangNhap(ActionEvent e){
         try{
             employee = es.getEmployeeByUser(username.getText(), password.getText());
@@ -45,6 +75,7 @@ public class DangNhapController {
                 scene= new Scene(root);
                 TrangChudemo2Controller controller = loader.getController();
                 controller.setUser(employee);
+                controller.loadUser(employee);
                 stage.setScene(scene);
                 stage.show();
             }

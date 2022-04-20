@@ -58,6 +58,7 @@ public class TrangChudemo2Controller implements Initializable {
       
     private static final ReceiptService rs = new ReceiptService();
     private static final ReceiptDetailService rds = new ReceiptDetailService();
+    private static Employee em = new Employee();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -65,6 +66,7 @@ public class TrangChudemo2Controller implements Initializable {
         loadTableView();
         loadTableData();
         loadDoanhthu();
+        setUser(em);
     }    
     @FXML
     private void trangchu(ActionEvent event) throws IOException
@@ -75,6 +77,12 @@ public class TrangChudemo2Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
+    public Employee loadUser(Employee employee){
+        this.em = employee;
+        return this.em;
+    }
+    
     @FXML
     private void taobill(ActionEvent event) throws IOException
     {

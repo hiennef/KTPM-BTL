@@ -22,7 +22,7 @@ public class Address {
         this.moreInfo = moreInfo;
         this.wardId = wardId;
     }
-
+    
     /**
      * @return the id
      */
@@ -64,5 +64,5 @@ public class Address {
     public void setWardId(int wardId) {
         this.wardId = wardId;
     }
-    
+        
 }

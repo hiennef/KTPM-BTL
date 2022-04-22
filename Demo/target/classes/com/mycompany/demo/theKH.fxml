@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -10,10 +11,11 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="474.0" prefWidth="782.0" style="-fx-background-color: radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%); -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.CustomerController">
    <children>
-      <Button alignment="CENTER" layoutX="77.0" layoutY="418.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="175.0" text="Thêm">
+      <Button fx:id="btAddCus" alignment="CENTER" layoutX="566.0" layoutY="413.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="35.0" prefWidth="137.0" text="Thêm">
          <font>
             <Font size="14.0" />
          </font>
@@ -39,67 +41,90 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutX="51.0" layoutY="76.0" text="Mã khách hàng:">
+      <Label layoutX="50.0" layoutY="64.0" text="Mã khách hàng:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="58.0" layoutY="166.0" text="Ngày sinh:">
+      <Label layoutX="57.0" layoutY="154.0" text="Ngày sinh:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="125.0" text="Họ:">
+      <Label layoutX="58.0" layoutY="113.0" text="Họ:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="264.0" text="Nơi ở hiện tại:">
+      <Label layoutX="57.0" layoutY="228.0" text="Nơi ở hiện tại:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="315.0" text="Số cmnd:">
+      <Label layoutX="62.0" layoutY="352.0" text="Số cmnd:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="58.0" layoutY="369.0" text="Số điện thoại:">
+      <Label layoutX="58.0" layoutY="395.0" text="Số điện thoại:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtIdCus" layoutX="197.0" layoutY="70.0" prefHeight="31.0" prefWidth="457.0" />
-      <TextField fx:id="txtNameCus" layoutX="197.0" layoutY="119.0" prefHeight="31.0" prefWidth="221.0" />
-      <TextField fx:id="txtCardCus" layoutX="197.0" layoutY="310.0" prefHeight="31.0" prefWidth="457.0" />
-      <TextField fx:id="txtPhoneCus" layoutX="197.0" layoutY="363.0" prefHeight="31.0" prefWidth="457.0" />
-      <Label layoutX="60.0" layoutY="216.0" text="Giới tính: ">
+      <TextField fx:id="txtIdCus" layoutX="196.0" layoutY="58.0" prefHeight="31.0" prefWidth="457.0" />
+      <TextField fx:id="txtNameCus" layoutX="196.0" layoutY="107.0" prefHeight="31.0" prefWidth="221.0" />
+      <TextField fx:id="txtCardCus" layoutX="197.0" layoutY="346.0" prefHeight="31.0" prefWidth="205.0" />
+      <TextField fx:id="txtPhoneCus" layoutX="197.0" layoutY="390.0" prefHeight="31.0" prefWidth="205.0" />
+      <Label layoutX="60.0" layoutY="191.0" text="Giới tính: ">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dpBirthdayCus" layoutX="197.0" layoutY="160.0" prefHeight="31.0" prefWidth="457.0" />
-      <RadioButton layoutX="198.0" layoutY="216.0" mnemonicParsing="false" text="Nam">
+      <DatePicker fx:id="dpBirthdayCus" layoutX="196.0" layoutY="148.0" prefHeight="31.0" prefWidth="457.0" />
+      <RadioButton fx:id="rd1" layoutX="196.0" layoutY="191.0" mnemonicParsing="false" text="Nam">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="291.0" layoutY="216.0" mnemonicParsing="false" text="Nữ">
+      <RadioButton fx:id="rd2" layoutX="289.0" layoutY="191.0" mnemonicParsing="false" text="Nữ">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="391.0" layoutY="216.0" mnemonicParsing="false" text="Khác">
+      <RadioButton fx:id="rd3" layoutX="389.0" layoutY="191.0" mnemonicParsing="false" text="Khác">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <TextField fx:id="txtAddressCus" layoutX="197.0" layoutY="258.0" prefHeight="31.0" prefWidth="317.0" />
-      <Label layoutX="465.0" layoutY="125.0" text="Tên:">
+      <TextField fx:id="txtAddressCus" layoutX="193.0" layoutY="306.0" prefHeight="31.0" prefWidth="317.0" />
+      <Label layoutX="464.0" layoutY="113.0" text="Tên:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtLastNameCus" layoutX="513.0" layoutY="120.0" prefHeight="31.0" prefWidth="137.0" />
+      <TextField fx:id="txtLastNameCus" layoutX="512.0" layoutY="108.0" prefHeight="31.0" prefWidth="137.0" />
+      <Text layoutX="183.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thành phố:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cbProvince" layoutX="262.0" layoutY="222.0" prefHeight="31.0" prefWidth="164.0" />
+      <Text layoutX="447.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quận:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cbDistrict" layoutX="491.0" layoutY="222.0" prefHeight="26.0" prefWidth="218.0" />
+      <Text layoutX="183.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phường:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cbWard" layoutX="243.0" layoutY="265.0" prefHeight="31.0" prefWidth="232.0" />
+      <Label layoutX="57.0" layoutY="312.0" text="Địa chỉ cụ thể:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

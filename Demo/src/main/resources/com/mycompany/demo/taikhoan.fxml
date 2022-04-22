@@ -77,7 +77,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtStore" layoutX="235.0" layoutY="378.0" prefHeight="31.0" prefWidth="155.0" />
+            <TextField fx:id="txtStore" layoutX="235.0" layoutY="378.0" prefHeight="31.0" prefWidth="344.0" />
             <TextField fx:id="txtGender" layoutX="232.0" layoutY="200.0" prefHeight="31.0" prefWidth="155.0" />
          </children>
       </AnchorPane>

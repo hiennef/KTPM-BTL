@@ -4,14 +4,15 @@
  */
 package com.mycompany.pojo;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 /**
  *
- * @author HIEN
+ * @author Vi
  */
-public class Customer {
+public class DataTbCustomer {
+
+    public static void add(DataTbCustomer dataTbCustomer) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private int id;
     private String firstName;
     private String lastName;
@@ -20,20 +21,16 @@ public class Customer {
     private String cardId;
     private int availablePoint;
     private int addressId;
-    private int genderId;
+    private String genderName;
+   
     
-    public Customer(){
+    public DataTbCustomer(){
         
     }
     
-    
-    public Customer(int id, int availablePoint){
-        this.id = id;
-        this.availablePoint = availablePoint;
-    }
-    
-    public Customer(int id, String lastName, String birthday, 
-            String phoneNumber, String cardId,int availablePoint,  int addressId, int genderId){
+    public DataTbCustomer(int id, String lastName,String birthday, 
+            String phoneNumber, String cardId, int availablePoint, int addressId
+            , String genderName){
         this.id = id;
         this.lastName =lastName;
         this.birthday = birthday;
@@ -41,49 +38,7 @@ public class Customer {
         this.cardId = cardId;
         this.availablePoint = availablePoint;
         this.addressId = addressId;
-        this.genderId = genderId;
-    }
-    
-    
-    public Customer(int id, String lastName, String birthday, 
-            String phoneNumber, String cardId,int availablePoint, int genderId){
-        this.id = id;
-        this.lastName =lastName;
-        this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
-        this.cardId = cardId;
-        this.availablePoint = availablePoint;
-        this.genderId = genderId;
-    }
-    
-    public Customer(int id, String firstName, String lastName, String birthday, 
-            String phoneNumber, String cardId, int genderId){
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName =lastName;
-        this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
-        this.cardId = cardId;
-        this.genderId = genderId;
-    }
-    
-    public Customer(int id, String firstName, String lastName, 
-            String birthday, String phoneNumber, String cardId, 
-            int availablePoint, int addressId, int genderId){
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName  = lastName;
-        this.birthday  = birthday;
-        this.phoneNumber = phoneNumber;
-        this.cardId = cardId;
-        this.availablePoint = availablePoint;
-        this.addressId = addressId;
-        this.genderId = genderId;
-    }
-    
-    public Customer(int id, String lastName){
-        this.id = id;
-        this.lastName  = lastName;
+        this.genderName = genderName;
     }
 
     /**
@@ -169,22 +124,22 @@ public class Customer {
     public void setCardId(String cardId) {
         this.cardId = cardId;
     }
-
+    
     /**
-     * @return the availablePoint
+     * @return the cardId
      */
     public int getAvailablePoint() {
         return availablePoint;
     }
 
     /**
-     * @param availablePoint the availablePoint to set
+     * @param cardId the cardId to set
      */
     public void setAvailablePoint(int availablePoint) {
-        this.availablePoint = availablePoint;
+        this.cardId = cardId;
     }
 
-    /**
+        /**
      * @return the addressId
      */
     public int getAddressId() {
@@ -198,18 +153,19 @@ public class Customer {
         this.addressId = addressId;
     }
 
+    
     /**
-     * @return the genderId
-     */
-    public int getGenderId() {
-        return genderId;
+     * @return the genderName    */
+    public String getGenderName() {
+        return genderName;
     }
 
     /**
-     * @param genderId the genderId to set
+     * @param genderName the genderName to set
      */
-    public void setGenderId(int genderId) {
-        this.genderId = genderId;
+    public void setGenderName(String genderName) {
+        this.genderName = genderName;
     }
     
 }
+

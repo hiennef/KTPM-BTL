@@ -6,6 +6,7 @@ package com.mycompany.demo;
 
 import com.mycompany.conf.jdbcUtils;
 import com.mycompany.pojo.Customer;
+import com.mycompany.pojo.DataTbCustomer;
 import com.mycompany.pojo.Employee;
 import com.mycompany.services.CustomerService;
 import java.net.URL;
@@ -37,7 +38,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class SearchCustomerController extends TrangChudemo2Controller  {
     private static final CustomerService c = new CustomerService();
-    @FXML private TableView<Customer> tbCustomers;
+    @FXML private TableView<DataTbCustomer> tbCustomers;
     @FXML private TextField txtSearchCus;
     @FXML private TextField txtUpPoint;
     @FXML private Button btUpdate;
@@ -78,26 +79,22 @@ public class SearchCustomerController extends TrangChudemo2Controller  {
         colBirth.setPrefWidth(100);
         
         TableColumn colGender = new TableColumn("Giới tính");
-        colGender.setCellValueFactory(new PropertyValueFactory("genderId"));
+        colGender.setCellValueFactory(new PropertyValueFactory("genderName"));
         colGender.setPrefWidth(90);
-        
-        TableColumn colAdderess = new TableColumn("Địa chỉ");
-        colAdderess.setCellValueFactory(new PropertyValueFactory("addressId"));
-        colAdderess.setPrefWidth(100);
         
         TableColumn colCard = new TableColumn("Số CMND");
         colCard.setCellValueFactory(new PropertyValueFactory("cardId"));
-        colCard.setPrefWidth(100);
+        colCard.setPrefWidth(150);
         
         TableColumn colPhone = new TableColumn("Số điện thoại");
         colPhone.setCellValueFactory(new PropertyValueFactory("phoneNumber"));
-        colPhone.setPrefWidth(100);
+        colPhone.setPrefWidth(150);
         
         TableColumn colPoint = new TableColumn("Điểm tích luỹ");
         colPoint.setCellValueFactory(new PropertyValueFactory("availablePoint"));
         colPoint.setPrefWidth(100);
         
-        this.tbCustomers.getColumns().addAll(colId, colName, colBirth, colGender, colAdderess, colCard, colPhone, colPoint);
+        this.tbCustomers.getColumns().addAll(colId, colName, colBirth, colGender, colCard, colPhone, colPoint);
     }
     
     public void addPointCus(ActionEvent e) throws SQLException{
@@ -114,7 +111,6 @@ public class SearchCustomerController extends TrangChudemo2Controller  {
                 alert.setContentText("Cập nhật điểm không thành công: " + ex.getMessage());
                 alert.show();
             } 
-        //vcb 1020228128 nguyen van tung
         
     }
     

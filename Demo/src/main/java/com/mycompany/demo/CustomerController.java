@@ -10,12 +10,18 @@ import com.mycompany.pojo.District;
 import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.Province;
 import com.mycompany.pojo.Ward;
+import com.mycompany.services.AllComboboxService;
+import com.mycompany.services.CustomerService;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,7 +37,7 @@ import javafx.scene.control.TextField;
  * @author Vi
  */
 public class CustomerController  implements Initializable{
-    private static final Customer s = new Customer();
+    private static final CustomerService s = new CustomerService();
     @FXML private Button btAddCus;
     @FXML private RadioButton rd1;
     @FXML private RadioButton rd2;
@@ -49,28 +55,40 @@ public class CustomerController  implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        
+        AllComboboxService s = new AllComboboxService();
+        //this.btAddCus.setVisible(false);
+        try {
+            this.cbProvince.setItems(FXCollections.observableList(s.getProvince()));
+            this.cbDistrict.setItems(FXCollections.observableList(s.getDistrict()));
+            this.cbWard.setItems(FXCollections.observableList(s.getWard()));
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(QLNhanVienController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+              
     }
     
-    /*public void addCustomers(ActionEvent evt) throws SQLException {
+    public void addCustomer(ActionEvent evt) throws SQLException {
         TextField[] t = new TextField[] {txtIdCus, txtNameCus, txtLastNameCus, txtPhoneCus, txtCardCus, txtAddressCus};
         RadioButton[] r = new RadioButton[] { rd1, rd2, rd3 };
         DatePicker[] d = new DatePicker[]{dpBirthdayCus};
         // luu dia chi
-        Random idrandom = new Random(); 
+         Random idrandom = new Random(); 
         Address ad = new Address(idrandom.nextInt(100), txtAddressCus.getText(),
-                cbWard.getSelectionModel().getSelectedItem().getId());
+                cbWard.getSelectionModel().getSelectedItem().getId()) ;
+        s.addAddressCustomer(ad);
         Ward w = new Ward(cbWard.getSelectionModel().getSelectedItem().getId(), cbWard.getSelectionModel().getSelectedItem().getName(), 
         cbDistrict.getSelectionModel().getSelectedItem().getId());
         District Dt = new District(cbDistrict.getSelectionModel().getSelectedItem().getId(), cbDistrict.getSelectionModel().getSelectedItem().getName(),
         cbProvince.getSelectionModel().getSelectedItem().getId());
         Province Pr = new Province(cbProvince.getSelectionModel().getSelectedItem().getId(), cbProvince.getSelectionModel().getSelectedItem().getName());
-        System.out.print(dpBirthdayCus.getValue());
+        
         Customer q = new Customer(
             Integer.parseInt(txtIdCus.getText()),
             txtNameCus.getText(),
             txtLastNameCus.getText(),
-            (dpBirthdayCus.getValue()),
+            ((TextField)dpBirthdayCus.getEditor()).getText(),
             txtPhoneCus.getText(),
             txtCardCus.getText(),
             rd1.isSelected()?1:rd2.isSelected()?2:3
@@ -78,13 +96,13 @@ public class CustomerController  implements Initializable{
         try{
             s.addCustomer(q);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Thêm nhân viên thành công!");
+            alert.setContentText("Thêm khách hàng thành công!");
             alert.show();
             }catch(SQLException ex){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Thêm nhân viên không thành công: " + ex.getMessage());
+                alert.setContentText("Thêm khách hàng không thành công: " + ex.getMessage());
                 alert.show();
             }
-   }*/
+   }
     
 }

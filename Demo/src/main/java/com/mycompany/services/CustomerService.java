@@ -5,7 +5,9 @@
 package com.mycompany.services;
 
 import com.mycompany.conf.jdbcUtils;
+import com.mycompany.pojo.Address;
 import com.mycompany.pojo.Customer;
+import com.mycompany.pojo.DataTbCustomer;
 import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.Gender;
 import java.sql.Connection;
@@ -25,6 +27,30 @@ import javafx.scene.control.TableView;
  */
 public class CustomerService {
     
+    public Customer getCustomerById(int id){
+        Customer e = new Customer();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement stm = conn.prepareStatement("SELECT * FROM customer WHERE id LIKE ?");
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            
+            while(rs.next()){
+                e.setId(rs.getInt("id"));
+                e.setFirstName(rs.getString("first_name"));
+                e.setLastName(rs.getString("last_name"));
+                e.setBirthday(rs.getString("birthday")); 
+                e.setPhoneNumber(rs.getString("phone_number"));
+                e.setCardId(rs.getString("card_id"));
+                e.setAddressId(rs.getInt("address_id"));
+                e.setGenderId(rs.getInt("gender_id"));
+            }
+        }
+        catch(Exception ex){
+            System.out.print(ex.getMessage());
+        }
+        return e;
+    }
+    
     public Gender getGenderById(int id){
         Gender p = new Gender();
         try(Connection conn = jdbcUtils.getConn()){
@@ -42,7 +68,7 @@ public class CustomerService {
         return p;
     }
         
-    public List<Customer> getCustomer(String kw) throws SQLException {
+    public List<DataTbCustomer> getCustomer(String kw) throws SQLException {
        try (Connection conn = jdbcUtils.getConn()) {
            PreparedStatement stm = conn.prepareStatement("SELECT * FROM customer WHERE id like concat('%', ?, '%')");
            
@@ -52,7 +78,7 @@ public class CustomerService {
            
            ResultSet rs = stm.executeQuery();
            
-           List<Customer> cus = new ArrayList<>();
+           List<DataTbCustomer> cus = new ArrayList<>();
            
            while (rs.next()) {
                
@@ -60,14 +86,14 @@ public class CustomerService {
                
                int id = rs.getInt("id");
                String name = rs.getString("last_name");
-               Timestamp birth = rs.getTimestamp("birthday");
+               String birth = rs.getString("birthday");
                String phoneNumber = rs.getString("phone_number");
                String cardid = rs.getString("card_id");
                int availablePoint = rs.getInt("available_point");
                int addressId = rs.getInt("address_id");
-               String genderId = g.getName();
+               String genderName = g.getName();
                
-               cus.add(new Customer(id, name, birth, phoneNumber, cardid, availablePoint, addressId, genderId));
+               cus.add(new DataTbCustomer(id, name, birth, phoneNumber, cardid, availablePoint, addressId, genderName));
             }
            
            return cus;
@@ -86,7 +112,7 @@ public class CustomerService {
         return false;
     }
     
-    /*public boolean addCustomer(Customer q) throws SQLException {
+    public boolean addCustomer(Customer q) throws SQLException {
         String q1 = "INSERT INTO customer(id, first_name, last_name, birthday, phone_number,"
                 + " card_id, address_id, gender_id ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -96,13 +122,28 @@ public class CustomerService {
              stm1.setInt(1, q.getId());
              stm1.setString(2, q.getFirstName());
              stm1.setString(3, q.getLastName());
-             //stm1.setString(4, q.getBirthday());
+             stm1.setString(4, q.getBirthday());
              stm1.setString(5, q.getPhoneNumber());
-             stm1.setString(9, q.getCardId());
-             stm1.setInt(13, q.getGenderId());
+             stm1.setString(6, q.getCardId());
+             stm1.setInt(7, q.getAddressId());
+             stm1.setInt(8, q.getGenderId());
 
              return stm1.executeUpdate()>0;
              
             }
-    }*/
+    }
+    
+    public boolean addAddressCustomer(Address q) throws SQLException{
+        String q1 = "INSERT INTO address(id, more_info, ward_id ) VALUES(?, ?, ?)";
+        try (Connection conn = jdbcUtils.getConn()) {
+            PreparedStatement stm1 = conn.prepareStatement(q1);
+            
+             stm1.setInt(1, q.getId());
+             stm1.setString(2, q.getMoreInfo());
+             stm1.setInt (3, q.getWardId());
+             return stm1.executeUpdate()>0;
+           
+        }
+    }
+    
 }  

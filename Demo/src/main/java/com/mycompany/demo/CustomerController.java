@@ -7,16 +7,12 @@ package com.mycompany.demo;
 import com.mycompany.pojo.Address;
 import com.mycompany.pojo.Customer;
 import com.mycompany.pojo.District;
-import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.Province;
 import com.mycompany.pojo.Ward;
 import com.mycompany.services.AllComboboxService;
 import com.mycompany.services.CustomerService;
 import java.net.URL;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -85,12 +81,12 @@ public class CustomerController  implements Initializable{
         Province Pr = new Province(cbProvince.getSelectionModel().getSelectedItem().getId(), cbProvince.getSelectionModel().getSelectedItem().getName());
         
         Customer q = new Customer(
-            Integer.parseInt(txtIdCus.getText()),
             txtNameCus.getText(),
             txtLastNameCus.getText(),
             ((TextField)dpBirthdayCus.getEditor()).getText(),
             txtPhoneCus.getText(),
             txtCardCus.getText(),
+            ad.getId(),
             rd1.isSelected()?1:rd2.isSelected()?2:3
             );
         try{

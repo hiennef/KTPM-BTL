@@ -8,18 +8,13 @@ import com.mycompany.conf.jdbcUtils;
 import com.mycompany.pojo.Address;
 import com.mycompany.pojo.Customer;
 import com.mycompany.pojo.DataTbCustomer;
-import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.Gender;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
 
 /**
  *
@@ -99,34 +94,22 @@ public class CustomerService {
            return cus;
         }
     }
-    public boolean addPointCus(Customer c) throws SQLException{
-        String c1 = "INSERT INTO customer(id, available_point) VALUES(?,?)";
-        try (Connection conn = jdbcUtils.getConn()) {
-             conn.setAutoCommit(false);
-             PreparedStatement stm1 = conn.prepareStatement(c1);
-             stm1.setInt(1, c.getId());
-             stm1.setInt(2, c.getAvailablePoint());
-
-             conn.commit();
-            }
-        return false;
-    }
     
     public boolean addCustomer(Customer q) throws SQLException {
-        String q1 = "INSERT INTO customer(id, first_name, last_name, birthday, phone_number,"
-                + " card_id, address_id, gender_id ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        String q1 = "INSERT INTO customer(first_name, last_name, birthday, phone_number,"
+                + " card_id, address_id, gender_id ) VALUES( ?, ?, ?, ?, ?, ?, ?)";
 
          try (Connection conn = jdbcUtils.getConn()) {
 //             conn.setAutoCommit(false);
              PreparedStatement stm1 = conn.prepareStatement(q1);
-             stm1.setInt(1, q.getId());
-             stm1.setString(2, q.getFirstName());
-             stm1.setString(3, q.getLastName());
-             stm1.setString(4, q.getBirthday());
-             stm1.setString(5, q.getPhoneNumber());
-             stm1.setString(6, q.getCardId());
-             stm1.setInt(7, q.getAddressId());
-             stm1.setInt(8, q.getGenderId());
+             
+             stm1.setString(1, q.getFirstName());
+             stm1.setString(2, q.getLastName());
+             stm1.setString(3, q.getBirthday());
+             stm1.setString(4, q.getPhoneNumber());
+             stm1.setString(5, q.getCardId());
+             stm1.setInt(6, q.getAddressId());
+             stm1.setInt(7, q.getGenderId());
 
              return stm1.executeUpdate()>0;
              

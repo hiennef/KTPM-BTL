@@ -5,28 +5,15 @@
 package com.mycompany.demo;
 
 import com.mycompany.conf.jdbcUtils;
-import com.mycompany.pojo.Customer;
 import com.mycompany.pojo.DataTbCustomer;
-import com.mycompany.pojo.Employee;
 import com.mycompany.services.CustomerService;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -40,8 +27,6 @@ public class SearchCustomerController extends TrangChudemo2Controller  {
     private static final CustomerService c = new CustomerService();
     @FXML private TableView<DataTbCustomer> tbCustomers;
     @FXML private TextField txtSearchCus;
-    @FXML private TextField txtUpPoint;
-    @FXML private Button btUpdate;
         
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -95,23 +80,6 @@ public class SearchCustomerController extends TrangChudemo2Controller  {
         colPoint.setPrefWidth(100);
         
         this.tbCustomers.getColumns().addAll(colId, colName, colBirth, colGender, colCard, colPhone, colPoint);
-    }
-    
-    public void addPointCus(ActionEvent e) throws SQLException{
-        TextField[] t = new TextField[] {txtSearchCus, txtUpPoint};
-        Customer cus = new Customer(Integer.parseInt(txtSearchCus.getText()), Integer.parseInt(txtUpPoint.getText()));
-        //c.addPointCus(cus);
-        try{
-            c.addPointCus(cus);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Cập nhật điểm tích luỹ thành công!");
-            alert.show();
-            }catch(SQLException ex){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Cập nhật điểm không thành công: " + ex.getMessage());
-                alert.show();
-            } 
-        
     }
     
 }

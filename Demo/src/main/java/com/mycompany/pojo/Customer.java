@@ -1,11 +1,9 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.pojo;
-
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  *
@@ -56,9 +54,8 @@ public class Customer {
         this.genderId = genderId;
     }
     
-    public Customer(int id, String firstName, String lastName, String birthday, 
+    public Customer(String firstName, String lastName, String birthday, 
             String phoneNumber, String cardId, int genderId){
-        this.id = id;
         this.firstName = firstName;
         this.lastName =lastName;
         this.birthday = birthday;
@@ -66,6 +63,17 @@ public class Customer {
         this.cardId = cardId;
         this.genderId = genderId;
     }
+    
+    public Customer(String firstName, String lastName, String birthday, 
+            String phoneNumber, String cardId, int addressId, int genderId){
+        this.firstName = firstName;
+        this.lastName =lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.cardId = cardId;
+        this.addressId = addressId;
+        this.genderId = genderId;
+    } 
     
     public Customer(int id, String firstName, String lastName, 
             String birthday, String phoneNumber, String cardId, 

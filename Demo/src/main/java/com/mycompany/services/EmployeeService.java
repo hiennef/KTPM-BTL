@@ -12,7 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class EmployeeService {
                 e.setId(rs.getInt("id"));
                 e.setFirstName(rs.getString("first_name"));
                 e.setLastName(rs.getString("last_name"));
-                e.setBirthday(rs.getDate("birthday"));
+                e.setBirthday(rs.getString("birthday"));
                 e.setPhoneNumber(rs.getString("phone_number"));
                 e.setUsername(rs.getString("user_name"));
                 e.setPassword(rs.getString("password"));
@@ -130,7 +129,7 @@ public class EmployeeService {
              stm1.setInt(1, q.getId());
              stm1.setString(2, q.getFirstName());
              stm1.setString(3, q.getLastName());
-             stm1.setDate(4, (java.sql.Date) q.getBirthday());
+             stm1.setString(4, q.getBirthday());
              stm1.setString(5, q.getPhoneNumber());
              stm1.setInt(6, q.getWorkingHours());
              stm1.setString(7, q.getCardId());

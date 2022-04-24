@@ -18,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -30,7 +31,7 @@ public class DangNhapController {
     private Scene scene;
     private Parent root;
     @FXML private TextField username;
-    @FXML private TextField password;
+    @FXML private PasswordField password;
     @FXML private Label lbuser;
     private static final EmployeeService es = new EmployeeService();
     public static Employee employee = new Employee();

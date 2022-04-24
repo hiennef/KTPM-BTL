@@ -68,6 +68,7 @@ public class TrangChudemo2Controller implements Initializable {
         loadDoanhthu();
         setUser(em);
     }    
+    
     @FXML
     private void trangchu(ActionEvent event) throws IOException
     {

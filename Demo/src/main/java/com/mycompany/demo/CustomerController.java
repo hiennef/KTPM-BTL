@@ -34,7 +34,6 @@ import javafx.scene.control.TextField;
  */
 public class CustomerController  implements Initializable{
     private static final CustomerService s = new CustomerService();
-    @FXML private Button btAddCus;
     @FXML private RadioButton rd1;
     @FXML private RadioButton rd2;
     @FXML private RadioButton rd3;

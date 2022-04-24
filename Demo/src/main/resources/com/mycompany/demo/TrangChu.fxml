@@ -15,24 +15,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="937.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%);" styleClass="homepage" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="937.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%);" styleClass="homepage" stylesheets="@../../../../../../../../../Downloads/hong%20update%2022.4/Demo/src/main/resources/com/mycompany/css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.TrangChudemo2Controller">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="483.0" prefWidth="136.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#trangchu" prefHeight="50.0" prefWidth="126.0" stylesheets="@../css/style.css" text="Trang chủ">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#trangchu" prefHeight="50.0" prefWidth="126.0" stylesheets="@../../../../../../../../../Downloads/hong%20update%2022.4/Demo/src/main/resources/com/mycompany/css/style.css" text="Trang chủ">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
                <font>
                   <Font size="17.0" />
-               </font></Button>
+               </font>
+            </Button>
             <Button mnemonicParsing="false" onAction="#taobill" prefHeight="50.0" prefWidth="126.0" text="Thanh toán" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
                </font>
                <VBox.margin>
                   <Insets top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+            </Button>
             <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="126.0" text="Thẻ KH">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#theKH" text="Tạo thẻ KH mới" />
@@ -46,12 +48,12 @@
                </VBox.margin>
             </MenuButton>
             <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="126.0" text="Quản lý" textAlignment="CENTER">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#QLChiNhanh" text="Chi nhánh" />
-                <MenuItem mnemonicParsing="false" onAction="#QLNhanvien" text="Nhân Viên" />
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#QLChiNhanh" text="Chi nhánh" />
+                  <MenuItem mnemonicParsing="false" onAction="#QLNhanvien" text="Nhân Viên" />
                   <MenuItem mnemonicParsing="false" onAction="#User" text="Tạo và phân quyền User" />
                   <MenuItem mnemonicParsing="false" onAction="#QLHanghoa" text="Hàng hóa" />
-              </items>
+               </items>
                <font>
                   <Font size="17.0" />
                </font>
@@ -65,63 +67,14 @@
                </font>
                <VBox.margin>
                   <Insets top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+            </Button>
          </children>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
       </VBox>
    </left>
-   <top>
-      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="941.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%);" styleClass="homepage" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke-width: 3; -fx-stroke: #02630e;" text="OU Market">
-               <font>
-                  <Font name="Calisto MT" size="28.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </HBox.margin>
-            </Text>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%); -fx-border-color: white;" text="Bắt đầu ca" textFill="WHITE">
-               <HBox.margin>
-                  <Insets left="150.0" right="50.0" top="5.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%); -fx-border-color: white;" text="Kết thúc ca" textAlignment="CENTER" textFill="WHITE">
-               <HBox.margin>
-                  <Insets left="20.0" top="5.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="179.0">
-               <children>
-                  <Label fx:id="lbusername" alignment="CENTER" styleClass="lbuser" text="username" textAlignment="CENTER">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font></Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#DangXuat" prefHeight="30.0" prefWidth="92.0" styleClass="btn-sign-out" stylesheets="@../css/style.css" text="Đăng xuất" textAlignment="CENTER" textFill="#bf3131">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </HBox>
-         </children>
-         <styleClass>
-            <String fx:value="homepage" />
-            <String fx:value="homepage" />
-         </styleClass>
-      </HBox>
-   </top>
    <center>
       <HBox prefHeight="493.0" prefWidth="798.0" BorderPane.alignment="CENTER">
          <children>
@@ -152,4 +105,55 @@
          </children>
       </HBox>
    </center>
+   <top>
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="941.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%);" stylesheets="@../../../../../../../../../Downloads/hong%20update%2022.4/Demo/src/main/resources/com/mycompany/css/style.css" BorderPane.alignment="CENTER">
+         <styleClass>
+            <String fx:value="homepage" />
+            <String fx:value="homepage" />
+         </styleClass>
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke-width: 3; -fx-stroke: #02630e;" text="OU Market">
+               <font>
+                  <Font name="Calisto MT" size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Text>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%); -fx-border-color: white;" text="Bắt đầu ca" textFill="WHITE" visible="false">
+               <HBox.margin>
+                  <Insets left="150.0" right="50.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%); -fx-border-color: white;" text="Kết thúc ca" textAlignment="CENTER" textFill="WHITE" visible="false">
+               <HBox.margin>
+                  <Insets left="20.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="179.0">
+               <children>
+                  <Label fx:id="lbusername" alignment="CENTER" styleClass="lbuser" text="username" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#DangXuat" prefHeight="30.0" prefWidth="92.0" styleClass="btn-sign-out" stylesheets="@../../../../../../../../../Downloads/hong%20update%2022.4/Demo/src/main/resources/com/mycompany/css/style.css" text="Đăng xuất" textAlignment="CENTER" textFill="#bf3131">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

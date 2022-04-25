@@ -5,6 +5,7 @@
 package com.mycompany.services;
 
 import com.mycompany.conf.jdbcUtils;
+import com.mycompany.pojo.Address;
 import com.mycompany.pojo.District;
 import com.mycompany.pojo.Province;
 import com.mycompany.pojo.Store;
@@ -59,40 +60,62 @@ public class AllComboboxService {
             return cates;
         }
     }
-    public List<District> getDistrict() throws SQLException {
-        try (Connection conn = jdbcUtils.getConn()) {
-            Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM district");
-            
+    //update tối 24.4
+   public List<District> getDistrictByProvinceId(int pid) throws SQLException {
+        
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from district WHERE province_id LIKE ?");
+            pstm.setInt(1, pid);
+            ResultSet rs = pstm.executeQuery();
             List<District> cates = new ArrayList<>();
-            
-            while (rs.next()) {
+            while(rs.next()){
                int id = rs.getInt("id");
                String name = rs.getString("name");
                int provinceId = rs.getInt("province_id");
                cates.add(new District(id, name, provinceId));
+               
             }
-           
-            return cates;
+        return cates;
+        
         }
+        
     }
-    public List<Ward> getWard() throws SQLException {
-        try (Connection conn = jdbcUtils.getConn()) {
-            Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM ward");
-            
+    public List<Ward> getWardByDistrictId(int pid) throws SQLException {
+        
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from ward WHERE district_id LIKE ?");
+            pstm.setInt(1, pid);
+            ResultSet rs = pstm.executeQuery();
             List<Ward> cates = new ArrayList<>();
-            
-            while (rs.next()) {
+            while(rs.next()){
                int id = rs.getInt("id");
                String name = rs.getString("name");
                int districtId = rs.getInt("district_id");
                cates.add(new Ward(id, name, districtId));
+               
             }
-           
-            return cates;
+        return cates;
+        
         }
+        
     }
+//    public List<Ward> getWard() throws SQLException {
+//        try (Connection conn = jdbcUtils.getConn()) {
+//            Statement stm = conn.createStatement();
+//            ResultSet rs = stm.executeQuery("SELECT * FROM ward");
+//            
+//            List<Ward> cates = new ArrayList<>();
+//            
+//            while (rs.next()) {
+//               int id = rs.getInt("id");
+//               String name = rs.getString("name");
+//               int districtId = rs.getInt("district_id");
+//               cates.add(new Ward(id, name, districtId));
+//               return cates;
+//            }
+//        return cates;
+//        }
+//    }
     public List<UserRole> getUserRole() throws SQLException {
         try (Connection conn = jdbcUtils.getConn()) {
             Statement stm = conn.createStatement();
@@ -108,5 +131,111 @@ public class AllComboboxService {
             return cates;
         }
     }
-    
+    //hong update 21/4
+    public UserRole getUserRoleById(int id){
+        UserRole p = new UserRole();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from user_role WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return p;
+    }
+    /*update ngày 22/4*/
+    public Province getProvinceById(int id){
+        Province p = new Province();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from province WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                return p;
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return p;
+    } 
+    public District getDistrictById(int id){
+        District p = new District();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from district WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setProvinceId(rs.getInt("province_id"));
+                return p;
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return p;
+    }
+      public Ward getWardById(int id){
+        Ward p = new Ward();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from ward WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setDistrictId(rs.getInt("district_id"));
+                return p;
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return p;
+    }
+      public Address getAddressById(int id){
+        Address p = new Address();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from address WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setMoreInfo(rs.getString("more_info"));
+                p.setWardId(rs.getInt("ward_id"));
+                return p;
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return p;
+    }
+    public District getDistrictByPrId(int id){
+        District p = new District();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * from district WHERE province_id LIKE ?");
+            pstm.setInt(1, id);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setProvinceId(rs.getInt("province_id"));
+                return p;
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return p;
+    }
 }

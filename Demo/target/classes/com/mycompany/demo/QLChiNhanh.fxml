@@ -4,6 +4,7 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -46,5 +47,73 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="474.0" prefWidth="782.0" style="-fx-background-color: radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%) radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%);">
+         <children>
+            <TableView fx:id="tbStore" layoutX="6.0" layoutY="54.0" prefHeight="226.0" prefWidth="769.0" />
+            <TextField fx:id="txtKeyword1" layoutX="10.0" layoutY="14.0" prefHeight="26.0" prefWidth="307.0" promptText="Hãy nhập mã của hàng cần tìm kiếm" />
+            <Button layoutX="43.0" layoutY="436.0" mnemonicParsing="false" onAction="#addStore" prefHeight="26.0" prefWidth="69.0" text="Thêm">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="129.0" layoutY="436.0" mnemonicParsing="false" onAction="#updateStore" prefHeight="26.0" prefWidth="69.0" text="Sửa">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Text layoutX="43.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã của hàng:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtId" layoutX="154.0" layoutY="312.0" prefHeight="26.0" prefWidth="251.0" />
+            <Text layoutX="43.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên cửa hàng:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtTenCuaHang" layoutX="154.0" layoutY="348.0" prefHeight="26.0" prefWidth="251.0" />
+            <Text layoutX="43.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotline:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtDienThoai" layoutX="154.0" layoutY="382.0" prefHeight="26.0" prefWidth="251.0" />
+            <Text layoutX="552.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ của hàng:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="cbProvince" layoutX="542.0" layoutY="315.0" onAction="#SelectProvince" prefHeight="26.0" prefWidth="207.0" />
+            <Text layoutX="444.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thành phố:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="cbDistrict" layoutX="542.0" layoutY="350.0" onAction="#SelectDistrict" prefHeight="26.0" prefWidth="207.0" />
+            <Text layoutX="442.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quận:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="cbWard" layoutX="542.0" layoutY="384.0" prefHeight="26.0" prefWidth="207.0" />
+            <Text layoutX="442.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phường">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="154.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin của hàng:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="442.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ cụ thể:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtDuong" layoutX="541.0" layoutY="419.0" prefHeight="26.0" prefWidth="207.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

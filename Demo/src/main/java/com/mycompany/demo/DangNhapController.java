@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -33,6 +34,7 @@ public class DangNhapController {
     @FXML private TextField username;
     @FXML private PasswordField password;
     @FXML private Label lbuser;
+   
     private static final EmployeeService es = new EmployeeService();
     public static Employee employee = new Employee();
     
@@ -88,4 +90,14 @@ public class DangNhapController {
             System.out.println(ex.getMessage());
         }
     }
+//    public void checkUser (Employee employee){
+//        employee = es.getEmployeeByUser(username.getText(), password.getText());
+//        if (employee.getUserRoleId()==3 ){
+//            this.QuanLy.setVisible(true);
+//        }
+//        else
+//            this.QuanLy.setVisible(false);
+//    }
+    
+            
 }

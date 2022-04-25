@@ -30,11 +30,6 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Label layoutX="131.0" layoutY="217.0" text="Quên mật khẩu" textFill="#d70303">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
             <Text fill="#101010" layoutX="174.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke-width: 1; -fx-stroke: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%)linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #65ac74 0.0%, #50768c 100.0%);" text="ĐĂNG NHẬP">
                <font>
                   <Font name="Calisto MT" size="31.0" />

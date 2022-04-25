@@ -58,11 +58,7 @@ public class TaiKhoanController extends TrangChudemo2Controller{
                 +String.valueOf(getDistrictById(employ.getAddressId()).getName()) );
         txtCard.setText(employ.getCardId());
         txtPhone.setText(employ.getPhoneNumber());
-        try {
-            txtStore.setText(ss.getStoreById(employ.getStoreId()).toString());
-        } catch (SQLException ex) {
-            Logger.getLogger(TaiKhoanController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtStore.setText(ss.getStoreById(employ.getStoreId()).toString());
     }
     
     

@@ -54,8 +54,7 @@ public class CustomerController  implements Initializable{
         //this.btAddCus.setVisible(false);
         try {
             this.cbProvince.setItems(FXCollections.observableList(s.getProvince()));
-            this.cbDistrict.setItems(FXCollections.observableList(s.getDistrict()));
-            this.cbWard.setItems(FXCollections.observableList(s.getWard()));
+           
             
             
         } catch (SQLException ex) {
@@ -63,6 +62,17 @@ public class CustomerController  implements Initializable{
         }
               
     }
+    //phân loại cbbox theo thành phố, quận, phường HONG UPDATE 24/4
+   public void SelectProvince (ActionEvent evt) throws SQLException {
+       AllComboboxService t = new AllComboboxService();
+       int provinceid = this.cbProvince.getSelectionModel().getSelectedItem().getId();
+       this.cbDistrict.setItems(FXCollections.observableList(t.getDistrictByProvinceId(provinceid)));
+   }
+   public void SelectDistrict (ActionEvent evt) throws SQLException {
+       AllComboboxService t = new AllComboboxService();
+       int Districtid = this.cbDistrict.getSelectionModel().getSelectedItem().getId();
+       this.cbWard.setItems(FXCollections.observableList(t.getWardByDistrictId(Districtid)));
+   }
     
     public void addCustomer(ActionEvent evt) throws SQLException {
         TextField[] t = new TextField[] {txtIdCus, txtNameCus, txtLastNameCus, txtPhoneCus, txtCardCus, txtAddressCus};

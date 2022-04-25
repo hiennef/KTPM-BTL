@@ -46,4 +46,29 @@ public class CustomerService {
         return listCus;
     }
     
+    public Customer getCustomerById(int id){
+        Customer c = new Customer();
+        try(Connection conn = jdbcUtils.getConn()){
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM customer WHERE id LIKE ?");
+            pstm.setInt(1, id);
+            
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                c.setId(rs.getInt("id"));
+                c.setFirstName(rs.getString("first_name"));
+                c.setLastName(rs.getString("last_name"));
+                c.setBirthday(rs.getTimestamp("birthday"));
+                c.setPhoneNumber(rs.getString("phone_number"));
+                c.setCardId(rs.getString("card_id"));
+                c.setAvailablePoint(rs.getInt("available_point"));
+                c.setAddressId(rs.getInt("address_id"));
+                c.setGenderId(rs.getInt("address_id"));
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return c;
+    }
+    
 }  

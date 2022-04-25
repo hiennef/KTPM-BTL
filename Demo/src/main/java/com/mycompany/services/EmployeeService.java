@@ -66,6 +66,9 @@ public class EmployeeService {
         }
         return e;
     }
+    
+    
+    //Hồng
     public List<ExportDataTbEmployee> getEmployee(String kw) throws SQLException {
        try (Connection conn = jdbcUtils.getConn()) {
            PreparedStatement stm = conn.prepareStatement("SELECT * FROM employee WHERE id like concat('%', ?, '%')");
@@ -124,4 +127,7 @@ public class EmployeeService {
             }
         return false;
     }
+    
+    
+    
 }

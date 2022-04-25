@@ -72,10 +72,10 @@ public class DangNhapController {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("TrangChu.fxml"));
                 Parent root = loader.load();
-                scene= new Scene(root);
-                TrangChudemo2Controller controller = loader.getController();
-                controller.setUser(employee);
-                controller.loadUser(employee);
+                scene= new Scene(root); 
+                TrangChudemo2Controller controller = loader.getController(); //gọi controller bên TrangChu
+                controller.setUser(employee); //set text cho lbuser
+                controller.loadUser(employee); //lưu ng đăng nhập vào biến toàn cục ở bên trang chủ
                 stage.setScene(scene);
                 stage.show();
             }

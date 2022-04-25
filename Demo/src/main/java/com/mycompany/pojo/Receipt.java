@@ -34,6 +34,21 @@ public class Receipt {
         this.employeeId = employeeId;
     }
     
+    public Receipt( Timestamp createdDate, float totalPrice, 
+            int rewardPoint, int customerId, int employeeId){
+        this.createdDate = createdDate;
+        this.totalPrice = totalPrice;
+        this.rewardPoint = rewardPoint;
+        this.customerId = customerId;
+        this.employeeId = employeeId;
+    }
+    
+    public Receipt( Timestamp createdDate, float totalPrice, int employeeId){
+        this.createdDate = createdDate;
+        this.totalPrice = totalPrice;
+        this.employeeId = employeeId;
+    }
+    
     
     public Receipt(int id, Timestamp createdDate){
         this.id = id;

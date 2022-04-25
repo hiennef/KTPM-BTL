@@ -8,38 +8,33 @@ package com.mycompany.pojo;
  *
  * @author HIEN
  */
-public class ReceiptDetail {
+public class StoreProduct {
+    private int storeId;
     private int productId;
-    private int receiptId;
     private double quantity;
 
-    public ReceiptDetail(){
+    public StoreProduct(){
         
     }
     
-    public ReceiptDetail(int productId, int receiptId, double quantity){
+    public StoreProduct(int storeId, int productId, double quantity){
+        this.storeId = storeId;
         this.productId = productId;
-        this.receiptId = receiptId;
         this.quantity = quantity;
     }
     
-    public ReceiptDetail(int productId, int receiptId){
-        this.productId = productId;
-        this.receiptId = receiptId;
-    }
-    
     /**
-     * @return the receiptId
+     * @return the storeId
      */
-    public int getReceiptId() {
-        return receiptId;
+    public int getStoreId() {
+        return storeId;
     }
 
     /**
-     * @param receiptId the receiptId to set
+     * @param storeId the storeId to set
      */
-    public void setReceiptId(int receiptId) {
-        this.receiptId = receiptId;
+    public void setStoreId(int storeId) {
+        this.storeId = storeId;
     }
 
     /**
@@ -69,6 +64,5 @@ public class ReceiptDetail {
     public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
-
     
 }

@@ -266,7 +266,7 @@ public class StoreService {
             }
     }  
        
-      public Store getStoreById(int id){
+    public Store getStoreById(int id){
         Store p = new Store();
         try(Connection conn = jdbcUtils.getConn()){
             PreparedStatement pstm = conn.prepareStatement("SELECT * from store WHERE id LIKE ?");
@@ -284,13 +284,33 @@ public class StoreService {
         }
         return p;
     }
-      public boolean deleteStore(int qId) throws SQLException {
-       try (Connection conn = jdbcUtils.getConn()) {
-           PreparedStatement stm = conn.prepareStatement("DELETE FROM store WHERE id=?");
-           stm.setInt(1, qId);
+    
+    public List<Store> getStore() throws SQLException {
+        try (Connection conn = jdbcUtils.getConn()) {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM store");
+            
+            List<Store> cates = new ArrayList<>();
+            
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String phoneNumber = rs.getString("phone_number");
+                int addressId = rs.getInt("address_id");
+                cates.add(new Store(id,name, phoneNumber,addressId));
+            }
            
-           return stm.executeUpdate() > 0;
-       }
-   }
+            return cates;
+        }
+    }
+    
+    public boolean deleteStore(int qId) throws SQLException {
+        try (Connection conn = jdbcUtils.getConn()) {
+            PreparedStatement stm = conn.prepareStatement("DELETE FROM store WHERE id=?");
+            stm.setInt(1, qId);
+           
+            return stm.executeUpdate() > 0;
+        }
+    }
      
 }

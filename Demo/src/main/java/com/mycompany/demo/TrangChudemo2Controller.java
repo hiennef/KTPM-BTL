@@ -73,8 +73,8 @@ public class TrangChudemo2Controller implements Initializable {
         loadTableView();
         loadTableData();
         loadDoanhthu();
+        setUser(em);
 
-        
     }    
     
     @FXML

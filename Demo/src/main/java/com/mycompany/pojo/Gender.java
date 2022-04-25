@@ -16,6 +16,12 @@ public class Gender {
         
     }
     
+    @Override
+    public String toString(){
+        return this.name;
+    }
+
+    
     public Gender(int id, String name){
         this.id = id;
         this.name = name;

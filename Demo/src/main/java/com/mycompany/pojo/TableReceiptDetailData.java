@@ -14,20 +14,17 @@ public class TableReceiptDetailData {
     private String soThuTu ;
     private String receiptId;
     private Timestamp createdDate;
-    private int productId;
     private String productName;
     private double quantity;
     private String producerName;
     private float productPrice;
-    private float productDroppedPrice;
     private String customerName;
     private String employeeName;
-    private float productTotalPrice;
     
     public TableReceiptDetailData(){
         
     }
-    //Trang chủ
+    
     public TableReceiptDetailData(String soThuTu, String receiptId, 
             Timestamp createdDate, String productName, double quantity, 
             String producerName, float productPrice, String customerName, 
@@ -53,19 +50,6 @@ public class TableReceiptDetailData {
         this.productPrice = productPrice;
         this.customerName = customerName;
         this.employeeName = employeeName;
-    }
-    
-    //Thanh toán
-    public TableReceiptDetailData(String soThuTu, int productId, 
-            String productName, double quantity, float productPrice, 
-            float productDroppedPrice, float productTotalPrice){
-        this.soThuTu = soThuTu;
-        this.productId = productId;
-        this.producerName = productName;
-        this.quantity = quantity;
-        this.productPrice = productPrice;
-        this.productDroppedPrice = productDroppedPrice;
-        this.productTotalPrice = productTotalPrice;
     }
 
     /**
@@ -192,48 +176,6 @@ public class TableReceiptDetailData {
      */
     public void setProductPrice(float productPrice) {
         this.productPrice = productPrice;
-    }
-
-    /**
-     * @return the productId
-     */
-    public int getProductId() {
-        return productId;
-    }
-
-    /**
-     * @param productId the productId to set
-     */
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    /**
-     * @return the productDroppedPrice
-     */
-    public float getProductDroppedPrice() {
-        return productDroppedPrice;
-    }
-
-    /**
-     * @param productDroppedPrice the productDroppedPrice to set
-     */
-    public void setProductDroppedPrice(float productDroppedPrice) {
-        this.productDroppedPrice = productDroppedPrice;
-    }
-
-    /**
-     * @return the productTotalPrice
-     */
-    public float getProductTotalPrice() {
-        return productTotalPrice;
-    }
-
-    /**
-     * @param productTotalPrice the productTotalPrice to set
-     */
-    public void setProductTotalPrice(float productTotalPrice) {
-        this.productTotalPrice = productTotalPrice;
     }
     
 }

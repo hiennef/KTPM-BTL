@@ -23,6 +23,11 @@ public class District {
         this.provinceId = provinceId;
     }
     
+    @Override
+    public String toString(){
+        return this.name;
+    }
+
     /**
      * @return the id
      */

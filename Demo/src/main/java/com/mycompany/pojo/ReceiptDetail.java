@@ -9,23 +9,25 @@ package com.mycompany.pojo;
  * @author HIEN
  */
 public class ReceiptDetail {
-    private int productId;
     private int receiptId;
+    private int productId;
     private double quantity;
+    private float droppedPrice;
 
     public ReceiptDetail(){
         
     }
     
-    public ReceiptDetail(int productId, int receiptId, double quantity){
-        this.productId = productId;
+    public ReceiptDetail(int receiptId, int productId, double quantity, float dropppedPrice){
         this.receiptId = receiptId;
+        this.productId = productId;
         this.quantity = quantity;
+        this.droppedPrice = dropppedPrice;
     }
     
-    public ReceiptDetail(int productId, int receiptId){
-        this.productId = productId;
+    public ReceiptDetail(int receiptId, int productId){
         this.receiptId = receiptId;
+        this.productId = productId;
     }
     
     /**
@@ -70,5 +72,18 @@ public class ReceiptDetail {
         this.quantity = quantity;
     }
 
+    /**
+     * @return the droppedPrice
+     */
+    public float getDroppedPrice() {
+        return droppedPrice;
+    }
+
+    /**
+     * @param droppedPrice the droppedPrice to set
+     */
+    public void setDroppedPrice(float droppedPrice) {
+        this.droppedPrice = droppedPrice;
+    }
     
 }

@@ -4,9 +4,6 @@
  */
 package com.mycompany.pojo;
 
-import java.util.Date;
-
-
 /**
  *
  * @author HIEN
@@ -15,7 +12,7 @@ public class Employee {
     private int id;
     private String firstName;
     private String lastName;
-    private Date birthday;
+    private String birthday;
     private String phoneNumber;
     private String username;
     private String password;
@@ -30,7 +27,7 @@ public class Employee {
         
     }
     
-    public Employee(int id, String firstName, String lastName, Date birthday, 
+    public Employee(int id, String firstName, String lastName, String birthday, 
             String phoneNumber, String username, String password, 
             int workingHours, String cardId, int userRoleId, int addressId
             , int storeId, int genderId){
@@ -49,7 +46,7 @@ public class Employee {
         this.genderId = genderId;
     }
     
-    public Employee(String firstName, String lastName, Date birthday, 
+    public Employee(String firstName, String lastName, String birthday, 
             String phoneNumber, String username, String password, String cardId,
             int userRoleId, int storeId, int genderId){
         this.firstName = firstName;
@@ -109,14 +106,14 @@ public class Employee {
     /**
      * @return the birthday
      */
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
     /**
      * @param birthday the birthday to set
      */
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

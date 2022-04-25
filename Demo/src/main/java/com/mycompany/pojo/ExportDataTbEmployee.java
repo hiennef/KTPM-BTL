@@ -9,25 +9,50 @@ package com.mycompany.pojo;
  * @author Administrator
  */
 public class ExportDataTbEmployee {
+
+  
     private int id;
     private String firstName;
     private String lastName;
-    private int storeId;
-    private int userRoleId;
+    private String birthday;
+    private String phoneNumber;
+    private String username;
+    private String password;
     private int workingHours;
+    private String cardId;
+    private String userRole;
+    private int addressId;
+    private String storeName;
+    private int genderId;
+    private int userRoleId;
+    private int StoreId;
+   
     
     public ExportDataTbEmployee(){
         
     }
     
-    public ExportDataTbEmployee(int id, String firstName, String lastName,int storeId, int userRoleId, int workingHours){
+    public ExportDataTbEmployee(int id, String firstName, String lastName,String birthday, 
+            String phoneNumber, String username, String password, 
+            int workingHours, String cardId, String userRole, int addressId
+            , String storeName, int genderId, int userRoleId , int StoreId){
         this.id = id;
         this.firstName = firstName;
         this.lastName =lastName;
-        this.storeId = storeId;
-        this.userRoleId = userRoleId;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.username = username;
+        this.password = password;
         this.workingHours = workingHours;
+        this.cardId = cardId;
+        this.userRole = userRole;
+        this.addressId = addressId;
+        this.storeName = storeName;
+        this.genderId = genderId;
+        this.userRoleId = userRoleId;
+        this.StoreId = StoreId;
     }
+
     /**
      * @return the id
      */
@@ -71,17 +96,141 @@ public class ExportDataTbEmployee {
     }
 
     /**
-     * @return the storeId
+     * @return the birthday
      */
-    public int getStoreId() {
-        return storeId;
+    public String getBirthday() {
+        return birthday;
     }
 
     /**
-     * @param storeId the storeId to set
+     * @param birthday the birthday to set
      */
-    public void setStoreId(int storeId) {
-        this.storeId = storeId;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    /**
+     * @return the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    /**
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return the workingHours
+     */
+    public int getWorkingHours() {
+        return workingHours;
+    }
+
+    /**
+     * @param workingHours the workingHours to set
+     */
+    public void setWorkingHours(int workingHours) {
+        this.workingHours = workingHours;
+    }
+
+    /**
+     * @return the cardId
+     */
+    public String getCardId() {
+        return cardId;
+    }
+
+    /**
+     * @param cardId the cardId to set
+     */
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
+    }
+
+    /**
+     * @return the userRole
+     */
+    public String getUserRole() {
+        return userRole;
+    }
+
+    /**
+     * @param userRole the userRole to set
+     */
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
+    /**
+     * @return the addressId
+     */
+    public int getAddressId() {
+        return addressId;
+    }
+
+    /**
+     * @param addressId the addressId to set
+     */
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
+    }
+
+    
+    public String getStoreName() {
+        return storeName;
+    }
+
+    /**
+     * @param storename the storename to set
+     */
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    /**
+     * @return the genderId
+     */
+    public int getGenderId() {
+        return genderId;
+    }
+
+    /**
+     * @param genderId the genderId to set
+     */
+    public void setGenderId(int genderId) {
+        this.genderId = genderId;
     }
 
     /**
@@ -99,17 +248,18 @@ public class ExportDataTbEmployee {
     }
 
     /**
-     * @return the workingHours
+     * @return the StoreId
      */
-    public int getWorkingHours() {
-        return workingHours;
+    public int getStoreId() {
+        return StoreId;
     }
 
     /**
-     * @param workingHours the workingHours to set
+     * @param StoreId the StoreId to set
      */
-    public void setWorkingHours(int workingHours) {
-        this.workingHours = workingHours;
+    public void setStoreId(int StoreId) {
+        this.StoreId = StoreId;
     }
+    
 }
 

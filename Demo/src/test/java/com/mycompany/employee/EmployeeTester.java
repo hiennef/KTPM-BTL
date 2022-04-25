@@ -7,6 +7,7 @@ package com.mycompany.employee;
 import com.mycompany.conf.jdbcUtils;
 import com.mycompany.demo.DangNhapController;
 import com.mycompany.pojo.Employee;
+import com.mycompany.services.AllComboboxService;
 import com.mycompany.services.EmployeeService;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -57,7 +58,23 @@ public class EmployeeTester {
     public void testGetEmployee(){
         EmployeeService es = new EmployeeService();
         Employee e = es.getEmployeeByUser("thuhien", "hihi");
-        System.out.println(e.getFirstName());
+        System.out.println(e.getLastName());
         Assertions.assertSame(e.getId(), 1);
     }
+    
+    
+    @Test
+    public void testGetUserRole() throws SQLException{
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery("SELECT * FROM user_role");
+        
+        System.out.println("Danh sách user role: ");
+        while (rs.next()) {
+            String id = rs.getString("id");
+            String name = rs.getString("name");
+            
+            System.out.println(id +" là "+ name);
+        }
+    }
+    
 }

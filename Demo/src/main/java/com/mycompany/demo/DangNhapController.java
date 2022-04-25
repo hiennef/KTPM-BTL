@@ -15,9 +15,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -30,8 +32,9 @@ public class DangNhapController {
     private Scene scene;
     private Parent root;
     @FXML private TextField username;
-    @FXML private TextField password;
+    @FXML private PasswordField password;
     @FXML private Label lbuser;
+   
     private static final EmployeeService es = new EmployeeService();
     public static Employee employee = new Employee();
     
@@ -72,10 +75,10 @@ public class DangNhapController {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("TrangChu.fxml"));
                 Parent root = loader.load();
-                scene= new Scene(root); 
-                TrangChudemo2Controller controller = loader.getController(); //gọi controller bên TrangChu
-                controller.setUser(employee); //set text cho lbuser
-                controller.loadUser(employee); //lưu ng đăng nhập vào biến toàn cục ở bên trang chủ
+                scene= new Scene(root);
+                TrangChudemo2Controller controller = loader.getController();
+                controller.setUser(employee);
+                controller.loadUser(employee);
                 stage.setScene(scene);
                 stage.show();
             }
@@ -87,4 +90,14 @@ public class DangNhapController {
             System.out.println(ex.getMessage());
         }
     }
+//    public void checkUser (Employee employee){
+//        employee = es.getEmployeeByUser(username.getText(), password.getText());
+//        if (employee.getUserRoleId()==3 ){
+//            this.QuanLy.setVisible(true);
+//        }
+//        else
+//            this.QuanLy.setVisible(false);
+//    }
+    
+            
 }

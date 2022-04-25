@@ -1,11 +1,9 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.pojo;
-
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  *
@@ -15,7 +13,7 @@ public class Customer {
     private int id;
     private String firstName;
     private String lastName;
-    private Timestamp birthday;
+    private String birthday;
     private String phoneNumber;
     private String cardId;
     private int availablePoint;
@@ -26,19 +24,59 @@ public class Customer {
         
     }
     
-    public Customer(int id, String lastName, Timestamp birthday, 
-            String phoneNumber, String cardId, int addressId, int genderId){
+    
+    public Customer(int id, int availablePoint){
         this.id = id;
+        this.availablePoint = availablePoint;
+    }
+    
+    public Customer(int id, String lastName, String birthday, 
+            String phoneNumber, String cardId,int availablePoint,  int addressId, int genderId){
+        this.id = id;
+        this.lastName =lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.cardId = cardId;
+        this.availablePoint = availablePoint;
+        this.addressId = addressId;
+        this.genderId = genderId;
+    }
+    
+    
+    public Customer(int id, String lastName, String birthday, 
+            String phoneNumber, String cardId,int availablePoint, int genderId){
+        this.id = id;
+        this.lastName =lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.cardId = cardId;
+        this.availablePoint = availablePoint;
+        this.genderId = genderId;
+    }
+    
+    public Customer(String firstName, String lastName, String birthday, 
+            String phoneNumber, String cardId, int genderId){
+        this.firstName = firstName;
+        this.lastName =lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.cardId = cardId;
+        this.genderId = genderId;
+    }
+    
+    public Customer(String firstName, String lastName, String birthday, 
+            String phoneNumber, String cardId, int addressId, int genderId){
+        this.firstName = firstName;
         this.lastName =lastName;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.cardId = cardId;
         this.addressId = addressId;
         this.genderId = genderId;
-    }
+    } 
     
     public Customer(int id, String firstName, String lastName, 
-            Timestamp birthday, String phoneNumber, String cardId, 
+            String birthday, String phoneNumber, String cardId, 
             int availablePoint, int addressId, int genderId){
         this.id = id;
         this.firstName = firstName;
@@ -101,14 +139,14 @@ public class Customer {
     /**
      * @return the birthday
      */
-    public Timestamp getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
     /**
      * @param birthday the birthday to set
      */
-    public void setBirthday(Timestamp birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

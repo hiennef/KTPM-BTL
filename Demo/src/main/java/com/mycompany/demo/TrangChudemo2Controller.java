@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.Receipt;
 import com.mycompany.pojo.TableReceiptDetailData;
+import com.mycompany.services.EmployeeService;
 import com.mycompany.services.ReceiptDetailService;
 import com.mycompany.services.ReceiptService;
 import java.sql.Date;
@@ -32,6 +33,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -46,6 +49,8 @@ public class TrangChudemo2Controller implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    @FXML private MenuItem quanLyNV;
+    @FXML private MenuItem quanLyCN;
 
     @FXML
     private BorderPane borderpane, borderpaneThemNV;
@@ -55,6 +60,8 @@ public class TrangChudemo2Controller implements Initializable {
     private TableView<TableReceiptDetailData> tbReceipt;
     @FXML 
     private TextField txtDoanhthu;
+    
+    
       
     private static final ReceiptService rs = new ReceiptService();
     private static final ReceiptDetailService rds = new ReceiptDetailService();
@@ -66,8 +73,10 @@ public class TrangChudemo2Controller implements Initializable {
         loadTableView();
         loadTableData();
         loadDoanhthu();
-        setUser(em);
+
+        
     }    
+    
     @FXML
     private void trangchu(ActionEvent event) throws IOException
     {
@@ -121,16 +130,11 @@ public class TrangChudemo2Controller implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("QLNhanvien.fxml"));
         borderpane.setCenter(root);
     }
-   @FXML
-    private void ThemNV(ActionEvent event) throws IOException
-    {
-        Parent root = FXMLLoader.load(getClass().getResource("ThemNV.fxml"));
-        borderpaneThemNV.setCenter(root);
-    }
+  
     @FXML
     private void QLHanghoa(ActionEvent event) throws IOException
     {
-        Parent root = FXMLLoader.load(getClass().getResource("QLHanghoa.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("QLHanghoa1.fxml"));
         borderpane.setCenter(root);
     }
     
@@ -148,11 +152,24 @@ public class TrangChudemo2Controller implements Initializable {
                 stage.setScene(scene);
                 stage.show();
     }
-    
+    //update 24/4
     public void setUser(Employee employee){
         this.lbusername.setText(employee.getLastName());
+        if (employee.getUserRoleId() == 4 || employee.getUserRoleId() == 3){
+            this.quanLyNV.setVisible(true);
+        }
+        else{
+            this.quanLyNV.setVisible(false);
+        }
+        
+        if (employee.getUserRoleId() == 3){
+            this.quanLyCN.setVisible(true);
+        }
+        else{
+            this.quanLyCN.setVisible(false);
+        }
     }
-    
+   
     public void loadTableView(){
         
         TableColumn colSTT = new TableColumn("STT");
@@ -213,4 +230,5 @@ public class TrangChudemo2Controller implements Initializable {
         var day = now.getDate();
         this.txtDoanhthu.setText(String.valueOf(rs.tinhDoanhthu(new Date(year,month,day))));
     }
+    
 }

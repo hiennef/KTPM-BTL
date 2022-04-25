@@ -5,20 +5,16 @@
 package com.mycompany.services;
 
 import com.mycompany.conf.jdbcUtils;
-import com.mycompany.pojo.District;
 import com.mycompany.pojo.Product;
 import com.mycompany.pojo.Receipt;
 import com.mycompany.pojo.ReceiptDetail;
-import com.mycompany.pojo.Store;
 import com.mycompany.pojo.TableReceiptDetailData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.scene.control.TextField;
 
 /**
  *
@@ -122,24 +118,6 @@ public class ReceiptDetailService {
         return p;
     }
     
-    public List<ReceiptDetail> getReceiptDetailsByReceiptId(int receipId){
-        List<ReceiptDetail> receiptdetails = new ArrayList<>();
-        try(Connection conn = jdbcUtils.getConn()){
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM receipt_detail WHERE receipt_id like ?");
-            pstm.setInt(1, receipId);
-            ResultSet rs = pstm.executeQuery();
-            while(rs.next()){
-                ReceiptDetail rd = new ReceiptDetail(rs.getInt("product_id"), rs.getInt("receipt_id"), rs.getDouble("quantity"));
-                receiptdetails.add(rd);
-            }
-        }
-        catch (Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        return receiptdetails;
-    }
-    
-    //Trang chủ
     public List<TableReceiptDetailData> getTbReceiptDetailData(){
         ProductService ps = new ProductService();
         ReceiptService rsv = new ReceiptService();
@@ -181,109 +159,4 @@ public class ReceiptDetailService {
         }
         return data;
     }
-    
-    //Thanh toán
-    public TableReceiptDetailData addRowProductData(Product p, List<TableReceiptDetailData> lt){
-        ProductService ps = new ProductService();
-        TableReceiptDetailData data = new TableReceiptDetailData();
-        boolean find = false;
-        for(int i=0; i<lt.size();i++){
-            if(lt.get(i).getProductId()== p.getId()){
-                data = lt.get(i);
-                find=true;
-                lt.get(i).setQuantity(data.getQuantity()+1);
-                lt.get(i).setProductTotalPrice(ps.getProductPrice(ps.getProductById(lt.get(i)
-                        .getProductId()))*(float)data.getQuantity());
-                data = lt.get(i);
-            }
-        }
-        if(!find){
-            if(ps.isDiscount(p)){
-                data.setSoThuTu(String.valueOf(lt.size()+1));
-                data.setProductId(p.getId());
-                data.setProductName(p.getName());
-                data.setQuantity(1);
-                data.setProductPrice(p.getSalePrice());
-                data.setProductDroppedPrice(p.getSalePrice()*ps.getDiscountById(p.getDiscountId()).getReducePercentage());
-                data.setProductTotalPrice(ps.getProductPrice(ps.getProductById(data.getProductId()))*(float)data.getQuantity());
-            }
-            else{
-                data.setSoThuTu(String.valueOf(lt.size()+1));
-                data.setProductId(p.getId());
-                data.setProductName(p.getName());
-                data.setQuantity(1);
-                data.setProductPrice(p.getSalePrice());
-                data.setProductDroppedPrice(0);
-                data.setProductTotalPrice(ps.getProductPrice(ps.getProductById(data.getProductId()))*(float)data.getQuantity());
-            }
-            lt.add(data);
-        }
-        return data;
-    }
-    
-    public void loadProductDataView(TableReceiptDetailData d, List<TextField> t){
-        ProductService ps = new ProductService();
-        t.get(0).setText(String.valueOf(d.getProductId()));
-        t.get(1).setText(d.getProductName());
-        t.get(2).setText(String.valueOf(d.getQuantity()));
-        t.get(3).setText(String.valueOf(d.getProductPrice()));
-        t.get(4).setText(String.valueOf(ps.getProductById(d.getProductId())
-                .getDiscountId()));
-    }
-    
-    public TableReceiptDetailData updateRowProductData(TableReceiptDetailData p, List<TableReceiptDetailData> lt, double quantity){
-        ProductService ps = new ProductService();
-        lt.get(lt.indexOf(p)).setQuantity(quantity);
-        lt.get(lt.indexOf(p)).setProductTotalPrice((float)quantity*ps.getProductPrice(ps.getProductById(p.getProductId())));
-        return lt.get(lt.indexOf(p));
-    }
-    
-    public boolean removeRowProductData(TableReceiptDetailData p, List<TableReceiptDetailData> lt){
-        try{
-            lt.remove(lt.indexOf(p));
-            return true;
-        }
-        catch(Exception ex){
-            return false;
-        }
-    }
-    
-    public List<Float> updatePrice(List<TableReceiptDetailData> lt, float tongTien, float daGiam, float thanhTien){
-        tongTien = 0;
-        daGiam = 0;
-        thanhTien = 0;
-        List<Float> list = new ArrayList<>();
-        for (TableReceiptDetailData l : lt){
-            tongTien += l.getProductPrice()*l.getQuantity();
-            daGiam += l.getProductDroppedPrice()*l.getQuantity();
-            thanhTien += l.getProductTotalPrice();
-        }
-        list.add(tongTien);
-        list.add(daGiam);
-        list.add(thanhTien);
-        return list;
-    }
-    
-    public List<ReceiptDetail> addReceiptDetail(Receipt receipt, List<TableReceiptDetailData> lt) throws SQLException{
-        try(Connection conn = jdbcUtils.getConn()){
-            conn.setAutoCommit(false);
-            for (TableReceiptDetailData l : lt){
-                PreparedStatement stm = conn.prepareStatement("INSERT INTO receipt_detail(product_id, receipt_id, quantity) VALUES (?, ?, ?)");
-                
-                stm.setInt(1, l.getProductId());
-                stm.setInt(2, receipt.getId());
-                stm.setDouble(3, l.getQuantity());
-                
-                stm.executeUpdate();
-            }
-            conn.commit();
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        return getReceiptDetailsByReceiptId(receipt.getId());
-    }
-    
-    
-    
 }

@@ -5,24 +5,15 @@
 package com.mycompany.demo;
 
 import com.mycompany.conf.jdbcUtils;
-import com.mycompany.pojo.Customer;
-import com.mycompany.pojo.Employee;
+import com.mycompany.pojo.DataTbCustomer;
 import com.mycompany.services.CustomerService;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -33,25 +24,32 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Vi
  */
 public class SearchCustomerController extends TrangChudemo2Controller  {
-    @FXML private TableView<Customer> tbCustomers;
+    private static final CustomerService c = new CustomerService();
+    @FXML private TableView<DataTbCustomer> tbCustomers;
     @FXML private TextField txtSearchCus;
-    @FXML private TextField txtPoint;
-    @FXML private Button btSearch;
         
     @Override
     public void initialize(URL url, ResourceBundle rb){
         loadTableView();
-        loadTableCus();
-        //this.txtSearchCus.textProperty().addListener((evt)->{
-        //    //oadTableCus(this.txtSearchCus.getText());
-        //});
+        loadData(null);
+        this.txtSearchCus.textProperty().addListener((evt) -> {
+            loadData(this.txtSearchCus.getText());
+            
+        });
+    }
+    
+    
+    private void loadData(String kw) {
+        try {
+            this.tbCustomers.setItems(FXCollections.observableList(c.getCustomer(kw)));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override
     public void loadTableView(){
-        TableColumn colSTT = new TableColumn("STT");
-        colSTT.setCellValueFactory(new PropertyValueFactory("id"));
-        colSTT.setPrefWidth(50);
         
         TableColumn colId = new TableColumn("Mã KH");
         colId.setCellValueFactory(new PropertyValueFactory("id"));
@@ -66,27 +64,22 @@ public class SearchCustomerController extends TrangChudemo2Controller  {
         colBirth.setPrefWidth(100);
         
         TableColumn colGender = new TableColumn("Giới tính");
-        colGender.setCellValueFactory(new PropertyValueFactory("genderId"));
-        colGender.setPrefWidth(100);
-        
-        TableColumn colAdderess = new TableColumn("Địa chỉ");
-        colAdderess.setCellValueFactory(new PropertyValueFactory("addressId"));
-        colAdderess.setPrefWidth(150);
+        colGender.setCellValueFactory(new PropertyValueFactory("genderName"));
+        colGender.setPrefWidth(90);
         
         TableColumn colCard = new TableColumn("Số CMND");
         colCard.setCellValueFactory(new PropertyValueFactory("cardId"));
-        colCard.setPrefWidth(100);
+        colCard.setPrefWidth(150);
         
         TableColumn colPhone = new TableColumn("Số điện thoại");
         colPhone.setCellValueFactory(new PropertyValueFactory("phoneNumber"));
         colPhone.setPrefWidth(150);
         
-        this.tbCustomers.getColumns().addAll(colId, colName, colBirth, colGender, colAdderess, colCard, colPhone);
-    }
-    
-    private void loadTableCus(){
-        CustomerService s = new CustomerService();
-        this.tbCustomers.setItems(FXCollections.observableList(s.getCustomer()));
+        TableColumn colPoint = new TableColumn("Điểm tích luỹ");
+        colPoint.setCellValueFactory(new PropertyValueFactory("availablePoint"));
+        colPoint.setPrefWidth(100);
+        
+        this.tbCustomers.getColumns().addAll(colId, colName, colBirth, colGender, colCard, colPhone, colPoint);
     }
     
 }

@@ -22,6 +22,15 @@ public class Address {
         this.moreInfo = moreInfo;
         this.wardId = wardId;
     }
+    public Address( String moreInfo, int wardId, int id){
+        this.moreInfo = moreInfo;
+        this.wardId = wardId;
+         this.id = id;
+    }
+    public Address(String moreInfo, int wardId){
+        this.moreInfo = moreInfo;
+        this.wardId = wardId;
+    }
 
     /**
      * @return the id
@@ -64,5 +73,5 @@ public class Address {
     public void setWardId(int wardId) {
         this.wardId = wardId;
     }
-    
+        
 }

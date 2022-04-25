@@ -27,7 +27,7 @@ public class jdbcUtils {
      * @throws java.sql.SQLException
      */
     public static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/oumarket", 
+        return DriverManager.getConnection("jdbc:mysql://localhost/oumarket", 
                 "root", "06082001");
     }
 }

@@ -248,7 +248,7 @@ public class ReceiptDetailService {
         }
     }
     
-    public List<Float> updatePrice(List<TableReceiptDetailData> lt, float tongTien, float daGiam, float thanhTien){
+    public List<Float> updatePrice(List<TableReceiptDetailData> lt, float tongTien, float daGiam, float thanhTien, float giamgia){
         tongTien = 0;
         daGiam = 0;
         thanhTien = 0;
@@ -258,6 +258,7 @@ public class ReceiptDetailService {
             daGiam += l.getProductDroppedPrice()*l.getQuantity();
             thanhTien += l.getProductTotalPrice();
         }
+        thanhTien = thanhTien - thanhTien*giamgia;
         list.add(tongTien);
         list.add(daGiam);
         list.add(thanhTien);

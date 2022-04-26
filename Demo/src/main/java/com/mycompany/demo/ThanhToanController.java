@@ -6,9 +6,12 @@ package com.mycompany.demo;
 
 import com.mycompany.conf.Utils;
 import com.mycompany.pojo.Customer;
+import com.mycompany.pojo.Discount;
 import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.Product;
+import com.mycompany.pojo.Store;
 import com.mycompany.pojo.TableReceiptDetailData;
+import com.mycompany.services.CustomerDiscountService;
 import com.mycompany.services.CustomerService;
 import com.mycompany.services.ProductService;
 import com.mycompany.services.ReceiptDetailService;
@@ -54,8 +57,8 @@ public class ThanhToanController implements Initializable{
     @FXML private TextField txtCustomerId,
             txtCustomerName, txtDiscountId, txtProductId, txtTongTien, 
             txtDaGiam, txtThanhTien, txtTienKhachDua;
-    @FXML private Label lbEmployee;
-    @FXML private ComboBox cbStore;
+    @FXML private Label lbEmployee, lbNoti;
+    @FXML private ComboBox<Store> cbStore;
     @FXML private DatePicker dpCreatedDate;
     @FXML private TableView<TableReceiptDetailData> tbvReceiptDetail;
     @FXML private Button btnAddProduct, btnDeleteAll, btnSave, btnPayment;
@@ -76,14 +79,19 @@ public class ThanhToanController implements Initializable{
     private static final ProductService ps = new ProductService();
     private static final ReceiptDetailService rds = new ReceiptDetailService();
     private static final StoreProductService sps = new StoreProductService();
+    private static final CustomerDiscountService cds = new CustomerDiscountService();
     private static int count;
     private static boolean dot = false;
     
     
     public static Customer customer = new Customer();
+    public static int storeId;
     public static List<TableReceiptDetailData> list = new ArrayList<>();
     public static float tongTien, daGiam, thanhTien, tienKhachDua=0;
     public static int customerId = 0;
+    public static Discount cusDis = new Discount();
+    public static float giamgia = 0;
+    public static String discount;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -100,9 +108,23 @@ public class ThanhToanController implements Initializable{
         listTF.add(txtSoLuong);
         listTF.add(txtDonGia);
         listTF.add(txtMaKhuyenMai);
-        
+        txtThanhTien.textProperty().addListener(evt->{
+            try{
+                if((Float.parseFloat(txtTongTien.getText())-Float.parseFloat(txtDaGiam.getText()))>=1000000&&cds.isBirthday(customer)){
+                    loadCusDiscount(cds.getDiscountByName("birthday"));
+                }
+                else{
+                    cusDis = new Discount();
+                    loadCusDiscount(cusDis);
+                }
+            }
+            catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        });
         try {
             cbStore.setValue(ss.getStoreById(employee.getStoreId()));
+            storeId = employee.getStoreId();
             cbStore.setItems(FXCollections.observableList(ss.getStore()));
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -119,6 +141,9 @@ public class ThanhToanController implements Initializable{
         try{
             customer = cs.getCustomerById(Integer.parseInt(id));
             txtCustomerName.setText(customer.getFirstName()+" "+customer.getLastName());
+            if((Float.parseFloat(txtTongTien.getText())-Float.parseFloat(txtDaGiam.getText()))>=1000000&&cds.isBirthday(customer)){
+                loadCusDiscount(cds.getDiscountByName("birthday"));
+            }
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -159,7 +184,7 @@ public class ThanhToanController implements Initializable{
                 colProductName, colQuantity, colProductPrice, colProductDroppedPrice, colProductTotalPrice);
     }
     
-    public void addProduct(ActionEvent e){
+    public void addProducta(ActionEvent e){
         System.out.println(e.toString());
         addProduct(txtProductId.getText());
         this.tbvReceiptDetail.setItems(FXCollections.observableList(list));
@@ -167,7 +192,7 @@ public class ThanhToanController implements Initializable{
         txtProductId.requestFocus();
     }
     
-    public void addProduct(KeyEvent e){
+    public void addProductk(KeyEvent e){
         if(e.getCode()==KeyCode.ENTER){
             addProduct(txtProductId.getText());
             this.tbvReceiptDetail.setItems(FXCollections.observableList(list));
@@ -178,12 +203,16 @@ public class ThanhToanController implements Initializable{
     public void addProduct(String id){
         Product p = ps.getProductById(Integer.parseInt(id));
         try{
-            this.product = rds.addRowProductData(p, list);
-            this.tbvReceiptDetail.refresh();
-            rds.loadProductDataView(product, listTF);
-            updatePriceText();
-            count = 0;
-            
+            if(p.getName()==null){
+                Utils.getBox("Không tìm thấy sản phẩm", Alert.AlertType.ERROR).show();
+            }
+            else{
+                this.product = rds.addRowProductData(p, list);
+                this.tbvReceiptDetail.refresh();
+                rds.loadProductDataView(product, listTF);
+                updatePriceText();
+                count = 0;
+            }
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -193,7 +222,7 @@ public class ThanhToanController implements Initializable{
     public void addText(ActionEvent e){
         Button b = (Button)e.getSource();
         try{
-            if(sps.checkProductQuantity(employee.getStoreId(), 
+            if(sps.checkProductQuantity(storeId, 
                     product.getProductId(), 
                     Double.parseDouble(txtSoLuong.getText()+b.getText()))){
                 count ++;
@@ -206,7 +235,7 @@ public class ThanhToanController implements Initializable{
             }
             else{
                 Utils.getBox("Số lượng sản phẩm còn: " + 
-                        sps.getProductQuantity(employee.getStoreId(), 
+                        sps.getProductQuantity(storeId, 
                                 product.getProductId()), Alert.AlertType.WARNING)
                         .show();
             }
@@ -306,9 +335,13 @@ public class ThanhToanController implements Initializable{
         }
     }
     
+    public void storeChange(ActionEvent e){
+        storeId = cbStore.getSelectionModel().selectedItemProperty().get().getId();
+    }
+    
     public void updatePriceText(){
         try{
-            List<Float> listF = rds.updatePrice(list, tongTien, daGiam, thanhTien);
+            List<Float> listF = rds.updatePrice(list, tongTien, daGiam, thanhTien, giamgia);
             tongTien = listF.get(0);
             daGiam = listF.get(1);
             thanhTien = listF.get(2);
@@ -325,17 +358,21 @@ public class ThanhToanController implements Initializable{
         try{
             if(!txtTienKhachDua.getText().isEmpty()){
                 tienKhachDua = Float.parseFloat(txtTienKhachDua.getText());
+                if(tienKhachDua<thanhTien){
+                    Utils.getBox("Tiền khách đưa không hơp lệ !", Alert.AlertType.WARNING);
+                }
             }
             else
                 tienKhachDua = thanhTien;
             if(!txtCustomerId.getText().isEmpty()){
                 customerId = Integer.parseInt(txtCustomerId.getText());
             }
-            Alert alert = Utils.getBox("Số tiền cần thối: "+ String.valueOf(tienKhachDua- thanhTien), Alert.AlertType.CONFIRMATION);
+            
+            Alert alert = Utils.getBox("Số tiền cần thối: "+ String.valueOf(tienKhachDua - thanhTien), Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Thanh toán");
             Optional<ButtonType> option = alert.showAndWait();
             if(option.get()==ButtonType.OK){
-                rs.addReceipt(Timestamp.valueOf(LocalDateTime.now()), thanhTien, customerId, employee.getId(), list);
+                rs.addReceipt(Timestamp.valueOf(LocalDateTime.now()), thanhTien, customerId, employee.getId(), storeId , list);
                 Utils.getBox("Thêm hóa đơn thành công", Alert.AlertType.INFORMATION).show();
                 reset();
             }
@@ -361,6 +398,33 @@ public class ThanhToanController implements Initializable{
         txtCustomerId.setText("");
         txtCustomerName.setText("");
         txtTienKhachDua.setText("");
+    }
+    
+    public void loadCusDiscount(Discount d){
+        cusDis = d ;
+        System.out.println(cusDis.getId());
+        if(d.getName()==null){
+            lbNoti.setText("");
+            giamgia = 0;
+        }
+        else{
+            txtDiscountId.setText(String.valueOf(d.getId()));
+            lbNoti.setText("Áp dụng mã giảm "+(int)(cusDis.getReducePercentage()*100)+" %");
+            giamgia = d.getReducePercentage();
+        }
+    }
+    
+    public void loadCusDiscountk(KeyEvent e){
+        if(e.getCode()==KeyCode.ENTER){
+            discount = txtDiscountId.getText();
+            try{
+                Discount p = cds.getDiscountById(Integer.parseInt(discount));
+                loadCusDiscount(p);
+            }
+            catch(Exception ex){
+                Utils.getBox("Mã giảm giá không hợp lệ", Alert.AlertType.NONE);
+            }
+        }
     }
     
 }

@@ -8,6 +8,7 @@ C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\Receipt
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\Employee.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\ProductUnit.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\ProductSubtype.java
+C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\CustomerDiscount.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\DataTbCustomer.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\District.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\StoreProduct.java
@@ -35,6 +36,7 @@ C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\conf\jdbcUtils.j
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\demo\ThanhToanController.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\TableReceiptDetailData.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\demo\QLNhanVienController.java
+C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\CustomerDiscountService.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\Customer.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\Product.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\ReceiptDetail.java

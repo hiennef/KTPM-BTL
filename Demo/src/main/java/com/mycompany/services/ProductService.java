@@ -90,7 +90,7 @@ public class ProductService {
             pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             while(rs.next()){
-                d.setId(rs.getString("id"));
+                d.setId(rs.getInt("id"));
                 d.setName(rs.getString("name"));
                 d.setStartTime(rs.getTimestamp("start_time"));
                 d.setEndTime(rs.getTimestamp("end_time"));

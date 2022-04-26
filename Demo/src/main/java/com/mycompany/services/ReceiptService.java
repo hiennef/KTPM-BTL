@@ -95,7 +95,7 @@ public class ReceiptService {
         return doanhthu;
     }
     
-    public void addReceipt(Timestamp createdDate, float totalPrice, int customerId, int employeeId, List<TableReceiptDetailData> lt) throws SQLException{
+    public void addReceipt(Timestamp createdDate, float totalPrice, int customerId, int employeeId, int storeId, List<TableReceiptDetailData> lt) throws SQLException{
         ReceiptDetailService rds = new ReceiptDetailService();
         StoreProductService sps = new StoreProductService();
         EmployeeService es = new EmployeeService();
@@ -114,7 +114,7 @@ public class ReceiptService {
             conn.commit();
             
             List<ReceiptDetail> rd = rds.addReceiptDetail(getLastReceipt(), lt);
-            sps.updateProductQuantity(rd, es.getEmployeeById(employeeId).getStoreId());
+            sps.updateProductQuantity(rd, storeId);
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());

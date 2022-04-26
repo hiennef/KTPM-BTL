@@ -1,8 +1,8 @@
 com\mycompany\pojo\Ward.class
-com\mycompany\demo\ThanhToanController.class
 com\mycompany\pojo\Discount.class
 com\mycompany\demo\SecondaryController.class
 com\mycompany\demo\QLNhanVienController.class
+com\mycompany\pojo\CustomerDiscount.class
 com\mycompany\demo\CustomerController.class
 com\mycompany\services\AddressService.class
 com\mycompany\services\ReceiptDetailService.class
@@ -38,6 +38,7 @@ com\mycompany\services\ReceiptService.class
 com\mycompany\services\StoreService.class
 com\mycompany\pojo\TableReceiptDetailData.class
 com\mycompany\demo\PrimaryController.class
+com\mycompany\services\CustomerDiscountService.class
 com\mycompany\pojo\Receipt.class
 com\mycompany\pojo\Employee.class
 com\mycompany\pojo\District.class

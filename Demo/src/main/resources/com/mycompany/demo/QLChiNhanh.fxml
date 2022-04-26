@@ -50,7 +50,11 @@
       <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="474.0" prefWidth="782.0" style="-fx-background-color: radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%) radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%);">
          <children>
             <TableView fx:id="tbStore" layoutX="6.0" layoutY="54.0" prefHeight="226.0" prefWidth="769.0" />
+<<<<<<< HEAD
             <TextField fx:id="txtKeyword" layoutX="10.0" layoutY="14.0" prefHeight="26.0" prefWidth="307.0" promptText="Hãy nhập mã của hàng cần tìm kiếm" />
+=======
+            <TextField fx:id="txtKeyword1" layoutX="10.0" layoutY="14.0" prefHeight="26.0" prefWidth="307.0" promptText="Hãy nhập mã của hàng cần tìm kiếm" />
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
             <Button layoutX="43.0" layoutY="436.0" mnemonicParsing="false" onAction="#addStore" prefHeight="26.0" prefWidth="69.0" text="Thêm">
                <font>
                   <Font size="14.0" />

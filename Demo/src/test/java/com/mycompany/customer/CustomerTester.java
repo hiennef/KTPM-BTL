@@ -6,7 +6,13 @@ package com.mycompany.customer;
 
 import com.mycompany.conf.jdbcUtils;
 import com.mycompany.pojo.Customer;
+<<<<<<< HEAD
 import com.mycompany.services.CustomerService;
+=======
+import com.mycompany.pojo.Employee;
+import com.mycompany.services.CustomerService;
+import com.mycompany.services.EmployeeService;
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +20,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
+<<<<<<< HEAD
+=======
+import org.junit.jupiter.api.Assertions;
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

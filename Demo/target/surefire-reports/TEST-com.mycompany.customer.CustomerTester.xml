@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.store.StoreTester" time="0.629" tests="1" errors="0" skipped="0" failures="0">
-=======
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.store.StoreTester" time="0.563" tests="1" errors="0" skipped="0" failures="1">
->>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.customer.CustomerTester" time="0.633" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -19,15 +15,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-18\bin"/>
-<<<<<<< HEAD
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\Star\AppData\Local\Temp\surefire3175936319191894268 2022-04-26T18-24-47_254-jvmRun1 surefire17662679870263818430tmp surefire_02927559881342225200tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\Star\AppData\Local\Temp\surefire12063539329437781785 2022-04-24T15-34-50_549-jvmRun1 surefire15120016722166857309tmp surefire_013632492587081240420tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="com.mycompany.store.StoreTester#testGetCustomer"/>
-=======
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\Star\AppData\Local\Temp\surefire2908783488677105964 2022-04-25T19-21-45_948-jvmRun1 surefire8831129534950343221tmp surefire_0482057000719907214tmp"/>
-    <property name="jdk.debug" value="release"/>
-    <property name="test" value="com.mycompany.store.StoreTester#testGetstoreById"/>
->>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
+    <property name="test" value="com.mycompany.customer.CustomerTester#testGetCustomer"/>
     <property name="surefire.test.class.path" value="C:\Users\Star\Documents\KTPM-BTL\Demo\target\test-classes;C:\Users\Star\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar;C:\Users\Star\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13.jar;C:\Users\Star\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar;C:\Users\Star\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar;C:\Users\Star\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\Star\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\Star\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Star\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\Star\.m2\repository\mysql\mysql-connector-java\8.0.28\mysql-connector-java-8.0.28.jar;C:\Users\Star\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;C:\Users\Star\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\Star\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Star\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\Star\.m2\repository\org\webjars\npm\node-gyp-build\4.3.0\node-gyp-build-4.3.0.jar;C:\Users\Star\.m2\repository\org\apache\ant\ant\1.8.1\ant-1.8.1.jar;C:\Users\Star\.m2\repository\org\apache\ant\ant-launcher\1.8.1\ant-launcher-1.8.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Star"/>
@@ -69,15 +59,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-<<<<<<< HEAD
-  <testcase name="testGetCustomer" classname="com.mycompany.store.StoreTester" time="0.061"/>
-=======
-  <testcase name="testGetstoreById" classname="com.mycompany.store.StoreTester" time="0.076">
-    <failure message="expected: &lt;2&gt; but was: &lt;1&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <2> but was: <1>
-	at com.mycompany.demo/com.mycompany.store.StoreTester.testGetstoreById(StoreTester.java:59)
-]]></failure>
-    <system-out><![CDATA[OUMARKET XÔ VIẾT NGHỆ TĨNH
-]]></system-out>
-  </testcase>
->>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
+  <testcase name="testGetCustomer" classname="com.mycompany.customer.CustomerTester" time="0.082"/>
 </testsuite>

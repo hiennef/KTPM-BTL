@@ -3,8 +3,11 @@ com\mycompany\demo\ThanhToanController.class
 com\mycompany\pojo\Discount.class
 com\mycompany\demo\SecondaryController.class
 com\mycompany\demo\QLNhanVienController.class
+<<<<<<< HEAD
 com\mycompany\demo\CustomerController.class
 com\mycompany\services\AddressService.class
+=======
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
 com\mycompany\services\ReceiptDetailService.class
 com\mycompany\pojo\DataTbCustomer.class
 com\mycompany\pojo\ReceiptDetail.class

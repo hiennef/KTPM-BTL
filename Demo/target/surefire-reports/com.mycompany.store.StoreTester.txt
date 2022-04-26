@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.store.StoreTester
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.629 s - in com.mycompany.store.StoreTester
+=======
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.563 s <<< FAILURE! - in com.mycompany.store.StoreTester
+testGetstoreById  Time elapsed: 0.076 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <2> but was: <1>
+	at com.mycompany.demo/com.mycompany.store.StoreTester.testGetstoreById(StoreTester.java:59)
+
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60

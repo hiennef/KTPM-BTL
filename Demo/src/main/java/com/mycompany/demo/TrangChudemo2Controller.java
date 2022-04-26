@@ -73,8 +73,13 @@ public class TrangChudemo2Controller implements Initializable {
         loadTableView();
         loadTableData();
         loadDoanhthu();
+<<<<<<< HEAD
         setUser(em);
 
+=======
+
+        
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
     }    
     
     @FXML
@@ -134,7 +139,11 @@ public class TrangChudemo2Controller implements Initializable {
     @FXML
     private void QLHanghoa(ActionEvent event) throws IOException
     {
+<<<<<<< HEAD
         Parent root = FXMLLoader.load(getClass().getResource("QLHangHoa.fxml"));
+=======
+        Parent root = FXMLLoader.load(getClass().getResource("QLHanghoa1.fxml"));
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
         borderpane.setCenter(root);
     }
     
@@ -155,6 +164,10 @@ public class TrangChudemo2Controller implements Initializable {
     //update 24/4
     public void setUser(Employee employee){
         this.lbusername.setText(employee.getLastName());
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
         if (employee.getUserRoleId() == 4 || employee.getUserRoleId() == 3){
             this.quanLyNV.setVisible(true);
         }

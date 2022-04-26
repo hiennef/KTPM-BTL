@@ -5,7 +5,13 @@
 package com.mycompany.store;
 
 import com.mycompany.conf.jdbcUtils;
+<<<<<<< HEAD
 import com.mycompany.pojo.Store;
+=======
+import com.mycompany.pojo.Employee;
+import com.mycompany.pojo.Store;
+import com.mycompany.services.EmployeeService;
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
 import com.mycompany.services.StoreService;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,7 +24,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  *
+<<<<<<< HEAD
  * @author Vi
+=======
+ * @author Star
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
  */
 public class StoreTester {
     private static Connection conn;
@@ -52,6 +62,7 @@ public class StoreTester {
     @Test
     public void testGetstoreById() throws SQLException{
         StoreService es = new StoreService();
+<<<<<<< HEAD
         Store s = es.getStoreById(1);
         System.out.println(s.getName());
         Assertions.assertSame(s.getId(), 1);
@@ -68,6 +79,11 @@ public class StoreTester {
             
             System.out.println(SL);
         }
+=======
+        Store s = es.getStoreById(2);
+        System.out.println(s.getName());
+        Assertions.assertSame(s.getId(), 2);
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
     }
     
 }

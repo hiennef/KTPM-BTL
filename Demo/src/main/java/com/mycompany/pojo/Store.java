@@ -58,6 +58,14 @@ public class Store {
         this.phoneNumber = phoneNumber;
         this.full_address = full_address;
     }
+<<<<<<< HEAD
+=======
+    
+    @Override
+    public String toString(){
+        return this.name;
+    }
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
     /**
      * @return the id
      */

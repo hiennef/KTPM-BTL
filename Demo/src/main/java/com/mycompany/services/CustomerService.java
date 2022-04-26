@@ -21,7 +21,11 @@ import java.util.List;
  * @author Vi
  */
 public class CustomerService {
+<<<<<<< HEAD
     EmployeeService es = new EmployeeService();
+=======
+    
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
     public Customer getCustomerById(int id){
         Customer e = new Customer();
         try(Connection conn = jdbcUtils.getConn()){
@@ -105,7 +109,11 @@ public class CustomerService {
              
              stm1.setString(1, q.getFirstName());
              stm1.setString(2, q.getLastName());
+<<<<<<< HEAD
              stm1.setString(3, es.SplitStringToDate(q.getBirthday()));
+=======
+             stm1.setString(3, q.getBirthday());
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
              stm1.setString(4, q.getPhoneNumber());
              stm1.setString(5, q.getCardId());
              stm1.setInt(6, q.getAddressId());

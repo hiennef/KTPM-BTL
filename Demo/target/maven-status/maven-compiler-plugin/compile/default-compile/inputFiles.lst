@@ -1,8 +1,13 @@
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\PrimaryController.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\ReceiptDetail.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Ward.java
+<<<<<<< HEAD
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Discount.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Product.java
+=======
+C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Product.java
+C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\QLHangHoa1Controller.java
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\QLChiNhanhController.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Store.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\services\AddressService.java
@@ -23,7 +28,10 @@ C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\services\ReceiptService
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\services\ProductService.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Receipt.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\ThanhToanController.java
+<<<<<<< HEAD
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\StoreProduct.java
+=======
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\District.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\conf\Utils.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\ExportDataTbEmployee.java
@@ -32,7 +40,10 @@ C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\TaiKhoanController
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\App.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\ProductType.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Producer.java
+<<<<<<< HEAD
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\QLHangHoaController.java
+=======
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\SecondaryController.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\CustomerController.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Address.java
@@ -42,4 +53,7 @@ C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\demo\QLNhanVienControll
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Employee.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\services\EmployeeService.java
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\pojo\Province.java
+<<<<<<< HEAD
 C:\Users\Star\Downloads\Demo\src\main\java\com\mycompany\services\StoreProductService.java
+=======
+>>>>>>> 49aebcba8b2782887d83a0055ee8319c027aaa60

@@ -5,9 +5,7 @@
 package com.mycompany.store;
 
 import com.mycompany.conf.jdbcUtils;
-import com.mycompany.pojo.Employee;
 import com.mycompany.pojo.Store;
-import com.mycompany.services.EmployeeService;
 import com.mycompany.services.StoreService;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,7 +18,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  *
- * @author Star
+ * @author Vi
  */
 public class StoreTester {
     private static Connection conn;
@@ -54,9 +52,22 @@ public class StoreTester {
     @Test
     public void testGetstoreById() throws SQLException{
         StoreService es = new StoreService();
-        Store s = es.getStoreById(2);
+        Store s = es.getStoreById(1);
         System.out.println(s.getName());
-        Assertions.assertSame(s.getId(), 2);
+        Assertions.assertSame(s.getId(), 1);
+    }
+    
+    @Test
+    public void testGetProductQuantity() throws SQLException{
+        Statement stm = conn.createStatement();
+        ResultSet rs = stm.executeQuery("SELECT * FROM store_product");
+        
+        System.out.println("Danh sách hàng hoá trong chi nhánh: ");
+        while (rs.next()) {
+            String SL = rs.getString("quantity");
+            
+            System.out.println(SL);
+        }
     }
     
 }

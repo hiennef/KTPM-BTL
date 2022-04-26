@@ -84,7 +84,7 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="txtDoanhthu" layoutX="194.0" layoutY="13.0" prefHeight="31.0" prefWidth="422.0" />
+                  <TextField fx:id="txtDoanhthu" disable="true" layoutX="194.0" layoutY="13.0" prefHeight="31.0" prefWidth="422.0" />
                   <Text layoutX="40.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giao dịch gần đây:" textAlignment="CENTER" wrappingWidth="146.2109375">
                      <font>
                         <Font size="14.0" />

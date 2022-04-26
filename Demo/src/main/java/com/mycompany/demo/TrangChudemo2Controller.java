@@ -73,8 +73,8 @@ public class TrangChudemo2Controller implements Initializable {
         loadTableView();
         loadTableData();
         loadDoanhthu();
+        setUser(em);
 
-        
     }    
     
     @FXML
@@ -134,7 +134,7 @@ public class TrangChudemo2Controller implements Initializable {
     @FXML
     private void QLHanghoa(ActionEvent event) throws IOException
     {
-        Parent root = FXMLLoader.load(getClass().getResource("QLHanghoa1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("QLHangHoa.fxml"));
         borderpane.setCenter(root);
     }
     

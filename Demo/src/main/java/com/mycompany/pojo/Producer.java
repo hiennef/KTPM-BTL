@@ -22,7 +22,10 @@ public class Producer {
         this.name = name;
         this.addressId = addressId;
     }
-    
+    @Override
+    public String toString(){
+        return this.name;
+    }
     /**
      * @return the id
      */

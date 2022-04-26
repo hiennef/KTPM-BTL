@@ -11,17 +11,18 @@ import java.sql.Timestamp;
  * @author HIEN
  */
 public class Discount {
-    private String id;
+    
+    private int id;
     private String name;
     private Timestamp startTime;
     private Timestamp endTime;
     private float reducePercentage;
-
+    
     public Discount(){
         
     }
     
-    public Discount(String id, String name, Timestamp startTime, Timestamp endTime, float reducePercentage){
+    public Discount(int id, String name, Timestamp startTime, Timestamp endTime, float reducePercentage){
         this.id = id;
         this.name = name;
         this.startTime = startTime;
@@ -29,17 +30,21 @@ public class Discount {
         this.reducePercentage = reducePercentage;
     }
     
+   @Override
+    public String toString(){
+        return this.name;
+    }
     /**
      * @return the id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -98,7 +103,8 @@ public class Discount {
     public void setReducePercentage(float reducePercentage) {
         this.reducePercentage = reducePercentage;
     }
-    
+
+  
     
     
 }

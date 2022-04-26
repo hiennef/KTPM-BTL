@@ -5,18 +5,14 @@
 package com.mycompany.employee;
 
 import com.mycompany.conf.jdbcUtils;
-import com.mycompany.demo.DangNhapController;
 import com.mycompany.pojo.Employee;
-import com.mycompany.services.AllComboboxService;
 import com.mycompany.services.EmployeeService;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -24,7 +20,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  *
- * @author HIEN
+ * @author Vi
  */
 public class EmployeeTester {
     private static Connection conn;

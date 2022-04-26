@@ -5,25 +5,18 @@
 package com.mycompany.receipt;
 
 import com.mycompany.conf.jdbcUtils;
-import com.mycompany.pojo.Product;
 import com.mycompany.pojo.Receipt;
-import com.mycompany.pojo.ReceiptDetail;
-import com.mycompany.pojo.Store;
 import com.mycompany.pojo.TableReceiptDetailData;
-import com.mycompany.services.EmployeeService;
 import com.mycompany.services.ProductService;
 import com.mycompany.services.ReceiptDetailService;
 import com.mycompany.services.ReceiptService;
 import com.mycompany.services.StoreProductService;
-import com.mycompany.services.StoreService;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;

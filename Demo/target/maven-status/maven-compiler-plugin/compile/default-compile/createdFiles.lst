@@ -7,8 +7,8 @@ com\mycompany\demo\CustomerController.class
 com\mycompany\services\AddressService.class
 com\mycompany\services\ReceiptDetailService.class
 com\mycompany\pojo\DataTbCustomer.class
-com\mycompany\demo\QLHangHoa1Controller.class
 com\mycompany\pojo\ReceiptDetail.class
+com\mycompany\demo\QLHangHoaController.class
 com\mycompany\demo\QLChiNhanhController.class
 com\mycompany\demo\App.class
 com\mycompany\pojo\ExportDataTbEmployee.class

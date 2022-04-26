@@ -17,13 +17,16 @@ public class Product {
     private int subtypeId;
     private int unitId;
     private int discountId;
+    private String producerName;
+    private String typeName;
+    private String unitName;
 
     public Product(){
         
     }
     
     public Product(int id, String name, float purchasePrice, float salePrice, 
-            int producerId, int subtypeId, int unitId, int discountId){
+            int producerId, int subtypeId, int unitId, int discountId, String producerName, String typeName,String unitName ){
         this.id = id;
         this.name = name;
         this.purchasePrice = purchasePrice;
@@ -32,8 +35,22 @@ public class Product {
         this.subtypeId = subtypeId;
         this.unitId = unitId;
         this.discountId = discountId;
+        this.producerName = producerName;
+        this.typeName = typeName;
+        this.unitName = unitName;
     }
-    
+    public Product(int id, String name, float purchasePrice, float salePrice, 
+            int producerId, int subtypeId, int unitId, int discountId ){
+        this.id = id;
+        this.name = name;
+        this.purchasePrice = purchasePrice;
+        this.salePrice = salePrice;
+        this.producerId = producerId;
+        this.subtypeId = subtypeId;
+        this.unitId = unitId;
+        this.discountId = discountId;
+        
+    }
     public Product(String name, float purchasePrice, float salePrice,
             int subtypeId, int unitId){
         this.name = name;
@@ -41,6 +58,17 @@ public class Product {
         this.salePrice = salePrice;
         this.subtypeId = subtypeId;
         this.unitId = unitId;
+    }
+    public Product(String name, float purchasePrice, float salePrice, int producerId, 
+            int subtypeId, int unitId){
+        this.name = name;
+        this.purchasePrice = purchasePrice;
+        this.salePrice = salePrice;
+        this.producerId = producerId;
+        this.subtypeId = subtypeId;
+        this.unitId = unitId;
+        
+        
     }
     
     /**
@@ -153,6 +181,48 @@ public class Product {
      */
     public void setDiscountId(int discountId) {
         this.discountId = discountId;
+    }
+
+    /**
+     * @return the producerName
+     */
+    public String getProducerName() {
+        return producerName;
+    }
+
+    /**
+     * @param producerName the producerName to set
+     */
+    public void setProducerName(String producerName) {
+        this.producerName = producerName;
+    }
+
+    /**
+     * @return the typeName
+     */
+    public String getTypeName() {
+        return typeName;
+    }
+
+    /**
+     * @param typeName the typeName to set
+     */
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    /**
+     * @return the unitName
+     */
+    public String getUnitName() {
+        return unitName;
+    }
+
+    /**
+     * @param unitName the unitName to set
+     */
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
     }
     
 }

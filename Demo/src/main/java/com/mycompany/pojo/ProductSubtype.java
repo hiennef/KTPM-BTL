@@ -22,7 +22,10 @@ public class ProductSubtype {
         this.name = name;
         this.typeId = typeId;
     }
-    
+    @Override
+    public String toString(){
+        return this.name;
+    }
     /**
      * @return the id
      */

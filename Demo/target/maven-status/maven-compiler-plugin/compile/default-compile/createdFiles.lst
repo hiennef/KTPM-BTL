@@ -1,4 +1,5 @@
 com\mycompany\pojo\Ward.class
+com\mycompany\demo\ThanhToanController.class
 com\mycompany\pojo\Discount.class
 com\mycompany\demo\SecondaryController.class
 com\mycompany\demo\QLNhanVienController.class

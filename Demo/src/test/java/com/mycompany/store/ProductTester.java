@@ -38,21 +38,27 @@ public class ProductTester {
         }
     }
        
-    @Test
-    public void testupdateProductQuantity() throws SQLException{
-        StoreProductService sps = new StoreProductService();
-        List<ReceiptDetail> rd = new ArrayList<>();
-        StoreProduct sp = new StoreProduct(1,10,20);
-        sps.updateProductQuantity(rd, sp.getStoreId());
-        System.out.println(sp.getStoreId()+" "+ sp.getProductId() +" "+ sp.getQuantity());
-    }
+//    @Test
+//    public void testupdateProductQuantity() throws SQLException{
+//        StoreProductService sps = new StoreProductService();
+//        List<ReceiptDetail> rd = new ArrayList<>();
+//        StoreProduct sp = new StoreProduct(1,10,20);
+//        sps.updateProductQuantity(rd, sp.getStoreId());
+//        System.out.println(sp.getStoreId()+" "+ sp.getProductId() +" "+ sp.getQuantity());
+//    }
+//    
+//    @Test 
+//    public void TestDGbySDTInvlid() {
+//       ProductService ps = new ProductService();
+//       Product p;
+//       p = ps.getProductById(1);
+//       Assertions.assertEquals("Rau dền", p.getName());
+//   }
     
-    @Test 
-    public void TestDGbySDTInvlid() {
-       ProductService ps = new ProductService();
-       Product p;
-       p = ps.getProductById(1);
-       Assertions.assertEquals("Rau dền", p.getName());
-   }
+    @Test
+    public void testGetLastImportBill(){
+        StoreProductService sps = new StoreProductService();
+        System.out.println("Importbill: "+ sps.getLastImportBill().getId());
+    }
     
 }

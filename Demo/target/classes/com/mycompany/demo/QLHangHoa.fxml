@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.QLHangHoaController">
+<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.QLHangHoaController">
    <children>
       <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="474.0" prefWidth="782.0" style="-fx-background-color: radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%) radial-gradient(focus-angle -168.69deg, focus-distance 0.0% , center 50.0% 50.0%, radius 98.3945%, #f2f4f1 0.0%, #f2f4f1 0.6729%, #f1f9fc 100.0%); -fx-background-radius: 10;">
          <children>
@@ -20,7 +20,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="txtKeyword" layoutX="103.0" layoutY="7.0" prefHeight="30.0" prefWidth="234.0" promptText="Nhập tên nhân viên cần tìm...." />
+            <TextField fx:id="txtKeyword" layoutX="103.0" layoutY="7.0" prefHeight="30.0" prefWidth="234.0" promptText="Nhập tên sản phẩm cần tìm...." />
             <TableView fx:id="tableproduct" layoutX="6.0" layoutY="49.0" prefHeight="177.0" prefWidth="774.0" />
             <Button layoutX="581.0" layoutY="419.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="30.0" prefWidth="70.0" text="Thêm">
                <font>
@@ -122,7 +122,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button layoutX="651.0" layoutY="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="121.0" text="Nhập hàng CN">
+            <Button layoutX="651.0" layoutY="7.0" mnemonicParsing="false" onAction="#Xuatnhaphang" prefHeight="30.0" prefWidth="121.0" text="Nhập hàng CN">
                <font>
                   <Font size="14.0" />
                </font>

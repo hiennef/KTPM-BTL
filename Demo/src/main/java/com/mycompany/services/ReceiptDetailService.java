@@ -4,6 +4,7 @@
  */
 package com.mycompany.services;
 
+import com.mycompany.conf.Utils;
 import com.mycompany.conf.jdbcUtils;
 import com.mycompany.pojo.District;
 import com.mycompany.pojo.Product;
@@ -18,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 /**
@@ -147,7 +149,7 @@ public class ReceiptDetailService {
         List<TableReceiptDetailData> data = new ArrayList<>();
         try(Connection conn = jdbcUtils.getConn()){
             Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM receipt_detail order by receipt_id");
+            ResultSet rs = stm.executeQuery("SELECT * FROM receipt_detail order by receipt_id DESC");
             int i = 1 ;
             int rid = -1 ;
             while(rs.next()){
@@ -185,40 +187,53 @@ public class ReceiptDetailService {
     //Thanh toán
     public TableReceiptDetailData addRowProductData(Product p, List<TableReceiptDetailData> lt){
         ProductService ps = new ProductService();
+        StoreProductService sps = new StoreProductService();
         TableReceiptDetailData data = new TableReceiptDetailData();
         boolean find = false;
-        for(int i=0; i<lt.size();i++){
-            if(lt.get(i).getProductId()== p.getId()){
-                data = lt.get(i);
-                find=true;
-                lt.get(i).setQuantity(data.getQuantity()+1);
-                lt.get(i).setProductTotalPrice(ps.getProductPrice(ps.getProductById(lt.get(i)
-                        .getProductId()))*(float)data.getQuantity());
-                data = lt.get(i);
+        int a = -1;
+        if(sps.checkProductQuantity(1, p.getId(), 1)){
+            for(int i=0; i<lt.size();i++){
+                if(lt.get(i).getProductId()== p.getId()){
+                    data = lt.get(i);
+                    find=true;
+                    if(sps.checkProductQuantity(1, p.getId(), data.getQuantity()+1)){
+                        lt.get(i).setQuantity(data.getQuantity()+1);
+                        lt.get(i).setProductTotalPrice(ps.getProductPrice(ps.getProductById(lt.get(i)
+                            .getProductId()))*(float)data.getQuantity());
+                    }
+                    else{
+                        Utils.getBox("Số lượng hàng còn : "+ sps.getProductQuantity(1, data.getProductId()), Alert.AlertType.WARNING).show();
+                    }
+                    data = lt.get(i);
+                }
             }
+            if(!find){
+                if(ps.isDiscount(p)){
+                    data.setSoThuTu(String.valueOf(lt.size()+1));
+                    data.setProductId(p.getId());
+                    data.setProductName(p.getName());
+                    data.setQuantity(1);
+                    data.setProductPrice(p.getSalePrice());
+                    data.setProductDroppedPrice(p.getSalePrice()*ps.getDiscountById(p.getDiscountId()).getReducePercentage());
+                    data.setProductTotalPrice(ps.getProductPrice(ps.getProductById(data.getProductId()))*(float)data.getQuantity());
+                }
+                else{
+                    data.setSoThuTu(String.valueOf(lt.size()+1));
+                    data.setProductId(p.getId());
+                    data.setProductName(p.getName());
+                    data.setQuantity(1);
+                    data.setProductPrice(p.getSalePrice());
+                    data.setProductDroppedPrice(0);
+                    data.setProductTotalPrice(ps.getProductPrice(ps.getProductById(data.getProductId()))*(float)data.getQuantity());
+                }
+                lt.add(data);
+            }
+            return data;
         }
-        if(!find){
-            if(ps.isDiscount(p)){
-                data.setSoThuTu(String.valueOf(lt.size()+1));
-                data.setProductId(p.getId());
-                data.setProductName(p.getName());
-                data.setQuantity(1);
-                data.setProductPrice(p.getSalePrice());
-                data.setProductDroppedPrice(p.getSalePrice()*ps.getDiscountById(p.getDiscountId()).getReducePercentage());
-                data.setProductTotalPrice(ps.getProductPrice(ps.getProductById(data.getProductId()))*(float)data.getQuantity());
-            }
-            else{
-                data.setSoThuTu(String.valueOf(lt.size()+1));
-                data.setProductId(p.getId());
-                data.setProductName(p.getName());
-                data.setQuantity(1);
-                data.setProductPrice(p.getSalePrice());
-                data.setProductDroppedPrice(0);
-                data.setProductTotalPrice(ps.getProductPrice(ps.getProductById(data.getProductId()))*(float)data.getQuantity());
-            }
-            lt.add(data);
+        else{
+            Utils.getBox("Số lượng sản phẩm không hợp lệ", Alert.AlertType.ERROR).show();
+            return null;
         }
-        return data;
     }
     
     public void loadProductDataView(TableReceiptDetailData d, List<TextField> t){

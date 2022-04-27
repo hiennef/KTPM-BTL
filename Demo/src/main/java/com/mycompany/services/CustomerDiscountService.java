@@ -25,8 +25,6 @@ public class CustomerDiscountService {
         try{
             Timestamp today = Timestamp.valueOf(LocalDateTime.now());
             Timestamp cusBirthday = Timestamp.valueOf(customer.getBirthday()+" 00:00:00.0");
-            System.out.println(today.getDate()+"/"+today.getMonth());
-            System.out.println(cusBirthday.getDate()+"/"+cusBirthday.getMonth());
             if(today.getDate()==cusBirthday.getDate()&&today.getMonth()==cusBirthday.getMonth())
                 kq = true;
         }

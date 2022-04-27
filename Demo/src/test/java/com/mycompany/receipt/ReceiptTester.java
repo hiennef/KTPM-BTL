@@ -30,6 +30,7 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -53,15 +54,6 @@ public class ReceiptTester {
         }
     }
 
-//    @Test
-//    public void testDatabase() {
-//        ReceiptService rs = new ReceiptService();
-//        List<Receipt> re = rs.getReceipts();
-//        for(int i = 0; i<re.size();i++){
-//            System.out.println(re.get(i).getCreatedDate());
-//        }
-//    }
-    
     @Test
     public void testRDDatabase(){
         var now = Date.from(Instant.now());
@@ -69,7 +61,6 @@ public class ReceiptTester {
         var year = now.getYear();
         var month = now.getMonth();
         var day = now.getDate();
-        //System.out.println(String.valueOf(day)+'/'+String.valueOf(month)+'/'+String.valueOf(day));
         ReceiptDetailService rds = new ReceiptDetailService();
         ReceiptService rs = new ReceiptService();
         List<Receipt> rc = rs.getReceiptsByDate(new Date(year,month,7));
@@ -88,45 +79,39 @@ public class ReceiptTester {
     @Test
     public void testDiscount(){
         ProductService ps = new ProductService();
-        System.out.println("HIHI");
         System.out.println(ps.getProductPrice(ps.getProductById(8)));
     }
     
-//    @Test
-//    public void testAddReceipt() throws SQLException{
-//        ReceiptService rs = new ReceiptService();
-//        ProductService ps = new ProductService();
-//        ReceiptDetailService rds = new ReceiptDetailService();
-//        StoreProductService sps = new StoreProductService();
-//        List<TableReceiptDetailData> lt = new ArrayList<>();
-//        rds.addRowProductData(ps.getProductById(1), lt);
-//        rds.addRowProductData(ps.getProductById(2), lt);
-//        rds.addRowProductData(ps.getProductById(3), lt);
-//        rds.addRowProductData(ps.getProductById(8), lt);
-//        rds.addRowProductData(ps.getProductById(8), lt);
-//        rds.addRowProductData(ps.getProductById(5), lt);
-//        rs.addReceipt(Timestamp.valueOf(LocalDateTime.now()),300000 , 2, 1, 1, lt);
-////        List<ReceiptDetail> rd = rds.getReceiptDetailsByReceiptId(31);
-////        sps.updateProductQuantity(rd, 1);
-////        for(ReceiptDetail r:rd){
-////            System.out.println(r.getProductId());
-////            System.out.println(r.getQuantity());
-////        }
-//        System.out.println(Timestamp.valueOf(LocalDateTime.now()));
-//        System.out.println("Hóa đơn");
-////        System.out.println(rs.getLastReceipt().getId());
-//    }
-   
     @Test
-    public void testCusDis(){
-        CustomerDiscountService cds = new CustomerDiscountService();
-        EmployeeService es = new EmployeeService();
-        CustomerService cs = new CustomerService();
-        Customer customer = cs.getCustomerById(7);
-        Timestamp today = Timestamp.valueOf(LocalDateTime.now());
-        Timestamp cusBirthday = Timestamp.valueOf(customer.getBirthday()+" 00:00:00.0");
-        System.out.println(today.getDate()+"/"+today.getMonth());
-        System.out.println(cusBirthday.getDate()+"/"+cusBirthday.getMonth());
-        System.out.println(cds.isBirthday(customer));
+    public void testAddReceipt() throws SQLException{
+        ReceiptService rs = new ReceiptService();
+        ProductService ps = new ProductService();
+        ReceiptDetailService rds = new ReceiptDetailService();
+        StoreProductService sps = new StoreProductService();
+        List<TableReceiptDetailData> lt = new ArrayList<>();
+        Receipt r1 = rs.getLastReceipt();
+        rds.addRowProductData(ps.getProductById(1), lt);
+        rds.addRowProductData(ps.getProductById(2), lt);
+        rds.addRowProductData(ps.getProductById(3), lt);
+        rds.addRowProductData(ps.getProductById(8), lt);
+        rds.addRowProductData(ps.getProductById(8), lt);
+        rds.addRowProductData(ps.getProductById(5), lt);
+        rs.addReceipt(Timestamp.valueOf(LocalDateTime.now()),300000 , 2, 1, 1, lt);
+        Receipt r2 = rs.getLastReceipt();
+        System.out.println("Test add receipt");
+        Assertions.assertNotEquals(r1.getId(), r2.getId(), "sai");
     }
+   
+//    @Test
+//    public void testCusDis(){
+//        CustomerDiscountService cds = new CustomerDiscountService();
+//        EmployeeService es = new EmployeeService();
+//        CustomerService cs = new CustomerService();
+//        Customer customer = cs.getCustomerById(7);
+//        Timestamp today = Timestamp.valueOf(LocalDateTime.now());
+//        Timestamp cusBirthday = Timestamp.valueOf(customer.getBirthday()+" 00:00:00.0");
+//        System.out.println(today.getDate()+"/"+today.getMonth());
+//        System.out.println(cusBirthday.getDate()+"/"+cusBirthday.getMonth());
+//        System.out.println(cds.isBirthday(customer));
+//    }
 }

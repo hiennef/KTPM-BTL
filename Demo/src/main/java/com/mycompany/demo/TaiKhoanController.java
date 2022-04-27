@@ -53,9 +53,9 @@ public class TaiKhoanController extends TrangChudemo2Controller{
         txtGender.setText(es.getGenderById(employ.getGenderId()).toString());
         
         
-        txtAddress.setText(String.valueOf(getAddressById(employ.getAddressId()).getMoreInfo())+", "
-                +String.valueOf(getWardById(employ.getAddressId()).getName())+", "
-                +String.valueOf(getDistrictById(employ.getAddressId()).getName()) );
+        txtAddress.setText(String.valueOf(getAddressById(employ.getAddressId()).getMoreInfo())+", Phường "
+                +String.valueOf(getWardById(getAddressById(employ.getAddressId()).getWardId()).getName())+", Quận "
+                +String.valueOf(getDistrictById(getWardById(getAddressById(employ.getAddressId()).getWardId()).getDistrictId()).getName()) );
         txtCard.setText(employ.getCardId());
         txtPhone.setText(employ.getPhoneNumber());
         txtStore.setText(ss.getStoreById(employ.getStoreId()).toString());

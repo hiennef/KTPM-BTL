@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -91,7 +92,6 @@ public class ThanhToanController implements Initializable{
     public static int customerId = 0;
     public static Discount cusDis = new Discount();
     public static float giamgia = 0;
-    public static String discount;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -109,18 +109,7 @@ public class ThanhToanController implements Initializable{
         listTF.add(txtDonGia);
         listTF.add(txtMaKhuyenMai);
         txtThanhTien.textProperty().addListener(evt->{
-            try{
-                if((Float.parseFloat(txtTongTien.getText())-Float.parseFloat(txtDaGiam.getText()))>=1000000&&cds.isBirthday(customer)){
-                    loadCusDiscount(cds.getDiscountByName("birthday"));
-                }
-                else{
-                    cusDis = new Discount();
-                    loadCusDiscount(cusDis);
-                }
-            }
-            catch(Exception ex){
-                System.out.println(ex.getMessage());
-            }
+            BirthdayDiscount();
         });
         try {
             cbStore.setValue(ss.getStoreById(employee.getStoreId()));
@@ -134,6 +123,9 @@ public class ThanhToanController implements Initializable{
     public void searchCustomer(KeyEvent e){
         if(e.getCode()==KeyCode.ENTER){
             searchCustomer(txtCustomerId.getText());
+            if(cds.isBirthday(customer)&&(Float.parseFloat(txtTongTien.getText())-Float.parseFloat(txtDaGiam.getText()))>=1000000){
+                loadCusDiscount(cds.getDiscountByName("birthday"));
+            }
         }
     }
     
@@ -141,9 +133,6 @@ public class ThanhToanController implements Initializable{
         try{
             customer = cs.getCustomerById(Integer.parseInt(id));
             txtCustomerName.setText(customer.getFirstName()+" "+customer.getLastName());
-            if((Float.parseFloat(txtTongTien.getText())-Float.parseFloat(txtDaGiam.getText()))>=1000000&&cds.isBirthday(customer)){
-                loadCusDiscount(cds.getDiscountByName("birthday"));
-            }
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -356,29 +345,31 @@ public class ThanhToanController implements Initializable{
     
     public void thanhToan(ActionEvent e) throws SQLException{
         try{
-            if(!txtTienKhachDua.getText().isEmpty()){
-                tienKhachDua = Float.parseFloat(txtTienKhachDua.getText());
-                if(tienKhachDua<thanhTien){
-                    Utils.getBox("Tiền khách đưa không hơp lệ !", Alert.AlertType.WARNING);
-                }
-            }
-            else
-                tienKhachDua = thanhTien;
             if(!txtCustomerId.getText().isEmpty()){
                 customerId = Integer.parseInt(txtCustomerId.getText());
             }
+            if(txtTienKhachDua.getText().isEmpty()){
+                tienKhachDua = thanhTien;
+            }
+            else
+                tienKhachDua = Float.parseFloat(txtTienKhachDua.getText());
             
-            Alert alert = Utils.getBox("Số tiền cần thối: "+ String.valueOf(tienKhachDua - thanhTien), Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Thanh toán");
-            Optional<ButtonType> option = alert.showAndWait();
-            if(option.get()==ButtonType.OK){
-                rs.addReceipt(Timestamp.valueOf(LocalDateTime.now()), thanhTien, customerId, employee.getId(), storeId , list);
-                Utils.getBox("Thêm hóa đơn thành công", Alert.AlertType.INFORMATION).show();
-                reset();
+            if(tienKhachDua<thanhTien)
+                Utils.getBox("Số tiền khách đưa không hợp lệ", Alert.AlertType.ERROR).show();
+            else{
+                Alert alert = Utils.getBox("Số tiền cần thối: "+ String.valueOf(tienKhachDua - thanhTien), Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Thanh toán");
+                Optional<ButtonType> option = alert.showAndWait();
+                if(option.get()==ButtonType.OK){
+                    rs.addReceipt(Timestamp.valueOf(LocalDateTime.now()), thanhTien, customerId, employee.getId(), storeId , list);
+                    cds.addCustomerDiscount(customerId, cusDis.getId());
+                    Utils.getBox("Thêm hóa đơn thành công", Alert.AlertType.INFORMATION).show();
+                    reset();
+                }
             }
         }
         catch(Exception ex){
-            Utils.getBox(ex.getMessage(), Alert.AlertType.ERROR).show();
+            Utils.getBox("Tạo hóa đơn thất bại! "+ex.getMessage(), Alert.AlertType.ERROR).show();
         }
     }
     
@@ -398,12 +389,14 @@ public class ThanhToanController implements Initializable{
         txtCustomerId.setText("");
         txtCustomerName.setText("");
         txtTienKhachDua.setText("");
+        loadCusDiscount(new Discount());
     }
     
     public void loadCusDiscount(Discount d){
         cusDis = d ;
         System.out.println(cusDis.getId());
         if(d.getName()==null){
+            txtDiscountId.setText("");
             lbNoti.setText("");
             giamgia = 0;
         }
@@ -416,13 +409,24 @@ public class ThanhToanController implements Initializable{
     
     public void loadCusDiscountk(KeyEvent e){
         if(e.getCode()==KeyCode.ENTER){
-            discount = txtDiscountId.getText();
             try{
-                Discount p = cds.getDiscountById(Integer.parseInt(discount));
+                Discount p = cds.getDiscountById(Integer.parseInt(txtDiscountId.getText()));
                 loadCusDiscount(p);
             }
             catch(Exception ex){
                 Utils.getBox("Mã giảm giá không hợp lệ", Alert.AlertType.NONE);
+            }
+        }
+    }
+    
+    public void BirthdayDiscount(){
+        if((Float.parseFloat(txtTongTien.getText())-Float.parseFloat(txtDaGiam.getText()))>=1000000){
+            if(cds.isBirthday(customer)){
+                loadCusDiscount(cds.getDiscountByName("birthday"));
+            }
+            else{
+                cusDis = new Discount();
+                loadCusDiscount(cusDis);
             }
         }
     }

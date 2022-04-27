@@ -33,6 +33,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  *
@@ -76,10 +78,11 @@ public class ReceiptTester {
         System.out.println(new Date(year,month,day));
     }
     
-    @Test
-    public void testDiscount(){
+    @ParameterizedTest
+    @CsvSource({"1,false", "2, false", "3, false", "8,true"})
+    public void testDiscount(int id, boolean expected){
         ProductService ps = new ProductService();
-        System.out.println(ps.getProductPrice(ps.getProductById(8)));
+        Assertions.assertEquals(ps.isDiscount(ps.getProductById(id)),expected);
     }
     
     @Test

@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.receipt.ReceiptTester
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.512 s <<< FAILURE! - in com.mycompany.receipt.ReceiptTester
-testAddReceipt  Time elapsed: 0.929 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: sai ==> expected: <40> but was: <41>
-	at com.mycompany.demo/com.mycompany.receipt.ReceiptTester.testAddReceipt(ReceiptTester.java:102)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.737 s - in com.mycompany.receipt.ReceiptTester

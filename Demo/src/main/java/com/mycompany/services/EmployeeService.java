@@ -24,8 +24,8 @@ import java.util.List;
  */
 public class EmployeeService {
     public Employee getEmployeeById(int id){
-        Employee e = new Employee();
         try(Connection conn = jdbcUtils.getConn()){
+            Employee e = new Employee();
             PreparedStatement stm = conn.prepareStatement("SELECT * FROM employee WHERE id LIKE ?");
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
@@ -45,11 +45,12 @@ public class EmployeeService {
                 e.setStoreId(rs.getInt("store_id"));
                 e.setGenderId(rs.getInt("gender_id"));
             }
+            return e;
         }
         catch(Exception ex){
             System.out.print(ex.getMessage());
+            return null;
         }
-        return e;
     }
     
     
@@ -71,8 +72,8 @@ public class EmployeeService {
     }
     
     public Employee getEmployeeByUser(String username, String password){
-        Employee e = new Employee();
         try(Connection conn = jdbcUtils.getConn()){
+            Employee e = new Employee();
             PreparedStatement stm = conn.prepareStatement(
                     "SELECT * FROM employee WHERE user_name LIKE ? AND password LIKE ?");
             stm.setString(1,username);
@@ -81,11 +82,12 @@ public class EmployeeService {
             while(rs.next()){
                 e = getEmployeeById(rs.getInt("id"));
             }
+            return e;
         }
         catch(Exception ex){
             System.out.print(ex.getMessage());
+            return null;
         }
-        return e;
     }
     public Store getStoreById(int id){
         Store p = new Store();

@@ -16,7 +16,11 @@ import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  *
@@ -72,5 +76,17 @@ public class EmployeeTester {
             System.out.println(id +" là "+ name);
         }
     }
+    
+    @ParameterizedTest
+    @CsvSource({"thuhien,hihi,1","trieuvi,haha,2","bichhong,hehe,3","quocthang,huhu,4"})
+    @DisplayName("Test get user")
+    public void testGetUserLogin(String username, String password, int id){
+        EmployeeService es = new EmployeeService();
+        Assertions.assertSame(es.getEmployeeByUser(username, password).getId(), id);
+    }
+    
+    
+    
+    
     
 }

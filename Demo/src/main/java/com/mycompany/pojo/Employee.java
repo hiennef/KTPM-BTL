@@ -60,7 +60,24 @@ public class Employee {
         this.storeId = storeId;
         this.genderId = genderId;
     }
-
+    public Employee( String firstName, String lastName, String birthday, 
+            String phoneNumber, String username, String password, 
+            int workingHours, String cardId, int userRoleId, int addressId
+            , int storeId, int genderId){
+        
+        this.firstName = firstName;
+        this.lastName =lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.username = username;
+        this.password = password;
+        this.workingHours = workingHours;
+        this.cardId = cardId;
+        this.userRoleId = userRoleId;
+        this.addressId = addressId;
+        this.storeId = storeId;
+        this.genderId = genderId;
+    }
     /**
      * @return the id
      */

@@ -101,47 +101,15 @@
                </font>
             </Text>
             <ComboBox fx:id="cbProducer" layoutX="492.0" layoutY="292.0" prefHeight="26.0" prefWidth="249.0" />
-            <Button layoutX="495.0" layoutY="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="146.0" text="Thêm mã giảm giá">
+            <Button layoutX="469.0" layoutY="7.0" mnemonicParsing="false" onAction="#addDiscountHandler" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: #e7af7a;" text="Tạo mã giảm giá" textFill="#0b0b0a">
                <font>
                   <Font size="14.0" />
                </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.2553216516971588" green="0.621052622795105" blue="0.4503781795501709" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
             </Button>
-            <Button layoutX="651.0" layoutY="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="121.0" text="Nhập hàng CN">
+            <Button layoutX="623.0" layoutY="7.0" mnemonicParsing="false" onAction="#ApdungHandler" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: #ecc02f;" text="Áp dụng mã giảm" textFill="#050505">
                <font>
                   <Font size="14.0" />
                </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.2553216516971588" green="0.621052622795105" blue="0.4503781795501709" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
             </Button>
          </children>
       </AnchorPane>

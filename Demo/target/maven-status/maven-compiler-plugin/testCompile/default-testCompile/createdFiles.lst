@@ -1,4 +1,6 @@
 com\mycompany\store\StoreTester.class
-com\mycompany\customer\CustomerTester.class
 com\mycompany\receipt\ReceiptTester.class
+com\mycompany\store\AddressTester.class
+com\mycompany\store\ProductTester.class
+com\mycompany\customer\CustomerTester.class
 com\mycompany\employee\EmployeeTester.class

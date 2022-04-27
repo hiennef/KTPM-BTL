@@ -20,6 +20,7 @@ import com.mycompany.pojo.UserRole;
 import com.mycompany.pojo.Ward;
 import com.mycompany.services.AllComboboxService;
 import com.mycompany.services.ProductService;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,7 +32,11 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -44,6 +49,9 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+
 
 /**
  *
@@ -61,7 +69,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
     private ComboBox<ProductUnit> cbProductUnit;
     @FXML
     private ComboBox<Producer> cbProducer;
-   
+    
     @FXML
     private TextField txtKeyword ;
     @FXML
@@ -77,7 +85,8 @@ public class QLHangHoaController extends TrangChudemo2Controller{
     private TextField txtQuantity ;
     @FXML
     private TextField txtDiscount;
-    
+    @FXML
+    private Button btThemMaGiam;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ProductService t = new ProductService();
@@ -86,6 +95,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
             this.cbProductType.setItems(FXCollections.observableList(t.getProductType()));
             this.cbProductUnit.setItems(FXCollections.observableList(t.getProductUnit()));
             this.cbProducer.setItems(FXCollections.observableList(t.getProducer()));
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(QLHangHoaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,6 +124,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
                 this.cbProductUnit.getSelectionModel().select(t.getProductUnitById(q.getUnitId()));
                 this.cbProducer.getSelectionModel().select(t.getProducerById(q.getProducerId()));
                 
+                
             });
             return row;
         });
@@ -124,6 +135,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
        int ProductTypeID = this.cbProductType.getSelectionModel().getSelectedItem().getId();
        this.cbProductSubtype.setItems(FXCollections.observableList(t.getProSub_ByProTypeId(ProductTypeID)));
    }
+    
     private void loadData(String kw) {
         try {
             this.tableproduct.setItems(FXCollections.observableList(s.getProduct(kw)));
@@ -230,7 +242,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
                  int v7 = this.cbProductUnit.getSelectionModel().getSelectedItem().getId();
                  
                  String sql1 = "UPDATE product Set name ='"+v2+"', purchase_price = '"+v3+"', sale_price= '"+v4+"',"
-                         + " producer_id ='"+v5+", type_id ='"+v6+"', unit_id ='"+v7+"' WHERE id ='"+v1+"'";
+                         + " producer_id ='"+v5+"', type_id ='"+v6+"', unit_id ='"+v7+"'  WHERE id ='"+v1+"' ";
                  PreparedStatement stm1 = conn.prepareStatement(sql1);
 
                  stm1.execute();    
@@ -258,6 +270,26 @@ public class QLHangHoaController extends TrangChudemo2Controller{
         this.cbProducer.getSelectionModel().select(null);
        
           
-    }  
+    }
+   //update 26/4
+   public void addDiscountHandler(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ThemMaGiam.fxml"));
+        Parent root = fxmlLoader.load();
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+                scene= new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+        
+    }
+   public void ApdungHandler(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ApDungMa.fxml"));
+        Parent root = fxmlLoader.load();
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+                scene= new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+        
+    }
+   
      
 }

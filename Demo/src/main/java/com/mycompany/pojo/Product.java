@@ -39,6 +39,10 @@ public class Product {
         this.typeName = typeName;
         this.unitName = unitName;
     }
+    @Override
+    public String toString(){
+        return this.name;
+    }
     public Product(int id, String name, float purchasePrice, float salePrice, 
             int producerId, int subtypeId, int unitId, int discountId ){
         this.id = id;
@@ -69,6 +73,11 @@ public class Product {
         this.unitId = unitId;
         
         
+    }
+    public Product(int id,  int discountId ){
+        this.id = id;
+        this.discountId = discountId;
+       
     }
     
     /**

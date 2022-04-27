@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.demo.ThemKhuyenMaiController">
+   <children>
+      <TableView fx:id="tableDiscount" layoutX="287.0" layoutY="96.0" prefHeight="228.0" prefWidth="506.0" />
+      <TextField fx:id="txtDiscountId" layoutX="128.0" layoutY="95.0" prefHeight="26.0" prefWidth="150.0" />
+      <Text fill="#995d0e" layoutX="65.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke-width: 3; -fx-stroke: gold;" text="THÊM MÃ GIẢM GIÁ">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="25.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã Giảm Giá:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="start_time" layoutX="128.0" layoutY="173.0" prefHeight="26.0" prefWidth="150.0" />
+      <Text layoutX="23.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày bắt đầu:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="end_time" layoutX="128.0" layoutY="210.0" prefHeight="26.0" prefWidth="150.0" />
+      <Text layoutX="22.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày kết thúc:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="22.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên Khuyến mãi:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="23.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\% giảm:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txt_NameDiscount" layoutX="128.0" layoutY="135.0" />
+      <TextField fx:id="txtpercent" layoutX="128.0" layoutY="246.0" />
+      <TextField fx:id="txtKeyword" layoutX="390.0" layoutY="48.0" prefHeight="26.0" prefWidth="187.0" promptText="Nhập Mã Giảm giá cần tìm..." />
+      <Text layoutX="287.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã Giảm Giá:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button layoutX="208.0" layoutY="286.0" mnemonicParsing="false" onAction="#addDiscount" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: #d4ba37;" text="Thêm" textFill="#101010">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="58.0" layoutY="286.0" mnemonicParsing="false" onAction="#BackHandler" prefHeight="30.0" prefWidth="136.0" style="-fx-background-color: #b76262;" text="Trở về Trang Chủ" textFill="#f4f3f3">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

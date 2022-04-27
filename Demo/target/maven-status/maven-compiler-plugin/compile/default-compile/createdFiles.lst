@@ -3,6 +3,8 @@ com\mycompany\demo\ThanhToanController.class
 com\mycompany\pojo\Discount.class
 com\mycompany\demo\SecondaryController.class
 com\mycompany\demo\QLNhanVienController.class
+com\mycompany\pojo\CustomerDiscount.class
+com\mycompany\services\DiscountService.class
 com\mycompany\demo\CustomerController.class
 com\mycompany\services\AddressService.class
 com\mycompany\services\ReceiptDetailService.class
@@ -32,14 +34,17 @@ com\mycompany\pojo\StoreProduct.class
 com\mycompany\pojo\Address.class
 module-info.class
 com\mycompany\conf\jdbcUtils.class
+com\mycompany\demo\ApdungMaController.class
 com\mycompany\demo\TaiKhoanController.class
 com\mycompany\services\EmployeeService.class
 com\mycompany\services\ReceiptService.class
 com\mycompany\services\StoreService.class
 com\mycompany\pojo\TableReceiptDetailData.class
 com\mycompany\demo\PrimaryController.class
+com\mycompany\services\CustomerDiscountService.class
 com\mycompany\pojo\Receipt.class
 com\mycompany\pojo\Employee.class
 com\mycompany\pojo\District.class
+com\mycompany\demo\ThemKhuyenMaiController.class
 com\mycompany\pojo\Gender.class
 com\mycompany\demo\DangNhapController.class

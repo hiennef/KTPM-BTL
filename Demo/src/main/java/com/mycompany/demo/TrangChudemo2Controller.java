@@ -46,14 +46,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Administrator
  */
 public class TrangChudemo2Controller implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    Stage stage;
+    Scene scene;
+    Parent root;
     @FXML private MenuItem quanLyNV;
     @FXML private MenuItem quanLyCN;
 
     @FXML
-    private BorderPane borderpane, borderpaneThemNV;
+    private BorderPane borderpane;
     @FXML 
     private Label lbusername;
     @FXML 

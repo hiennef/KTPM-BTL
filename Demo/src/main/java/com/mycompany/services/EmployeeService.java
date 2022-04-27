@@ -239,25 +239,25 @@ public class EmployeeService {
         return year + "-" + month +"-" + day;
     }
    public boolean addEmployee(Employee q) throws SQLException {
-        String q1 = "INSERT INTO employee(id, first_name, last_name, birthday, phone_number,user_name, password, working_hours, "
-                + " card_id, user_role_id, address_id, store_id, gender_id ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String q1 = "INSERT INTO employee(first_name, last_name, birthday, phone_number,user_name, password, working_hours, "
+                + " card_id, user_role_id, address_id, store_id, gender_id ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
          try (Connection conn = jdbcUtils.getConn()) {
 //             conn.setAutoCommit(false);
              PreparedStatement stm1 = conn.prepareStatement(q1);
-             stm1.setInt(1, q.getId());
-             stm1.setString(2, q.getFirstName());
-             stm1.setString(3, q.getLastName());
-             stm1.setString(4, SplitStringToDate(q.getBirthday()));
-             stm1.setString(5, q.getPhoneNumber());
-             stm1.setString(6, q.getUsername());
-             stm1.setString(7,q.getPassword());
-             stm1.setInt(8, q.getWorkingHours());
-             stm1.setString(9, q.getCardId());
-             stm1.setInt(10, q.getUserRoleId());
-             stm1.setInt(11, q.getAddressId());
-             stm1.setInt(12, q.getStoreId());
-             stm1.setInt(13, q.getGenderId());
+
+             stm1.setString(1, q.getFirstName());
+             stm1.setString(2, q.getLastName());
+             stm1.setString(3, SplitStringToDate(q.getBirthday()));
+             stm1.setString(4, q.getPhoneNumber());
+             stm1.setString(5, q.getUsername());
+             stm1.setString(6,q.getPassword());
+             stm1.setInt(7, q.getWorkingHours());
+             stm1.setString(8, q.getCardId());
+             stm1.setInt(9, q.getUserRoleId());
+             stm1.setInt(10, q.getAddressId());
+             stm1.setInt(11, q.getStoreId());
+             stm1.setInt(12, q.getGenderId());
 
              return stm1.executeUpdate()>0;
              

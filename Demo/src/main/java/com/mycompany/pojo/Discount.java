@@ -30,6 +30,14 @@ public class Discount {
         this.reducePercentage = reducePercentage;
     }
     
+    public Discount( String name, Timestamp startTime, Timestamp endTime, float reducePercentage){
+
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.reducePercentage = reducePercentage;
+    }
+    
    @Override
     public String toString(){
         return this.name;

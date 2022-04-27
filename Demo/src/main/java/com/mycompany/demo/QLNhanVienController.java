@@ -265,7 +265,7 @@ public class QLNhanVienController extends TrangChudemo2Controller {
         Province Pr = new Province(cbProvince.getSelectionModel().getSelectedItem().getId(), cbProvince.getSelectionModel().getSelectedItem().getName());
         
         Employee q = new Employee(
-        Integer.parseInt(txtID.getText()),
+        
         txtFirst_Name.getText() ,
         txtLast_Name.getText(),
         ((TextField)Birthday.getEditor()).getText(),

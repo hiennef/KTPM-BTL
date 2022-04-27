@@ -51,6 +51,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+
+
 /**
  *
  * @author Star
@@ -67,7 +69,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
     private ComboBox<ProductUnit> cbProductUnit;
     @FXML
     private ComboBox<Producer> cbProducer;
-   
+    
     @FXML
     private TextField txtKeyword ;
     @FXML
@@ -83,15 +85,8 @@ public class QLHangHoaController extends TrangChudemo2Controller{
     private TextField txtQuantity ;
     @FXML
     private TextField txtDiscount;
-    
     @FXML
-    public void Xuatnhaphang(ActionEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("XuatNhapHang.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    
+    private Button btThemMaGiam;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ProductService t = new ProductService();
@@ -100,6 +95,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
             this.cbProductType.setItems(FXCollections.observableList(t.getProductType()));
             this.cbProductUnit.setItems(FXCollections.observableList(t.getProductUnit()));
             this.cbProducer.setItems(FXCollections.observableList(t.getProducer()));
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(QLHangHoaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -128,6 +124,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
                 this.cbProductUnit.getSelectionModel().select(t.getProductUnitById(q.getUnitId()));
                 this.cbProducer.getSelectionModel().select(t.getProducerById(q.getProducerId()));
                 
+                
             });
             return row;
         });
@@ -138,6 +135,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
        int ProductTypeID = this.cbProductType.getSelectionModel().getSelectedItem().getId();
        this.cbProductSubtype.setItems(FXCollections.observableList(t.getProSub_ByProTypeId(ProductTypeID)));
    }
+    
     private void loadData(String kw) {
         try {
             this.tableproduct.setItems(FXCollections.observableList(s.getProduct(kw)));
@@ -186,6 +184,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
                     if(res== ButtonType.OK){
                         TableCell c = (TableCell)((Button)evt.getSource()).getParent();
                         Product q = (Product) c.getTableRow().getItem();
+                      
                         try {
                             s.deleteProduct(q.getId());
                             this.tableproduct.getItems().clear();
@@ -193,7 +192,6 @@ public class QLHangHoaController extends TrangChudemo2Controller{
                             this.reset();
                            
                         } catch (SQLException ex) {
-                            System.out.println(ex.getMessage());
                             Logger.getLogger(QLNhanVienController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
@@ -233,7 +231,7 @@ public class QLHangHoaController extends TrangChudemo2Controller{
         if(q!=null){
              try{
                  Connection conn = jdbcUtils.getConn();
-                 conn.setAutoCommit(false);
+                
                  //Lay dữ liệu cập nhật sản phẩm
                  int v1 = Integer.parseInt(this.txtID.getText());
                  String v2 = this.txtProductName.getText();
@@ -243,12 +241,11 @@ public class QLHangHoaController extends TrangChudemo2Controller{
                  int v6 = this.cbProductSubtype.getSelectionModel().getSelectedItem().getId();
                  int v7 = this.cbProductUnit.getSelectionModel().getSelectedItem().getId();
                  
-                 String sql1 = "UPDATE product SET name ='"+v2+"', purchase_price = '"+v3+"', sale_price= '"+v4+"',"
-                         + " producer_id ='"+v5+"', type_id ='"+v6+"', unit_id ='"+v7+"' WHERE id = '"+v1+"'";
+                 String sql1 = "UPDATE product Set name ='"+v2+"', purchase_price = '"+v3+"', sale_price= '"+v4+"',"
+                         + " producer_id ='"+v5+"', type_id ='"+v6+"', unit_id ='"+v7+"'  WHERE id ='"+v1+"' ";
                  PreparedStatement stm1 = conn.prepareStatement(sql1);
 
-                 stm1.executeUpdate();    
-                 conn.commit();
+                 stm1.execute();    
                  this.tableproduct.getItems().clear();
                  this.reset();
                  Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -273,6 +270,33 @@ public class QLHangHoaController extends TrangChudemo2Controller{
         this.cbProducer.getSelectionModel().select(null);
        
           
-    }  
+    }
+   //update 26/4
+   public void addDiscountHandler(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ThemMaGiam.fxml"));
+        Parent root = fxmlLoader.load();
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+                scene= new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+        
+    }
+   public void ApdungHandler(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ApDungMa.fxml"));
+        Parent root = fxmlLoader.load();
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+                scene= new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+        
+    }
+   
+    @FXML
+    public void Xuatnhaphang(ActionEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("XuatNhapHang.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
      
 }

@@ -1,3 +1,4 @@
+C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\demo\ThemKhuyenMaiController.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\Province.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\ProductService.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\ReceiptDetailService.java
@@ -18,6 +19,7 @@ C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\module-info.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\demo\PrimaryController.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\conf\jdbcUtils.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\demo\ThanhToanController.java
+C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\DiscountService.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\ReceiptDetail.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\StoreProductService.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\AllComboboxService.java
@@ -38,6 +40,7 @@ C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\StoreSe
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\demo\QLChiNhanhController.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\demo\QLHangHoaController.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\services\AddressService.java
+C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\demo\ApdungMaController.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\Receipt.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\Store.java
 C:\Users\HIEN\Desktop\KTPM-BTL\Demo\src\main\java\com\mycompany\pojo\TableReceiptDetailData.java

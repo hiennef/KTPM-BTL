@@ -233,6 +233,28 @@ public class ProductService {
         }
         
     }
+     public List<Product> getcbProduct() throws SQLException {
+        try (Connection conn = jdbcUtils.getConn()) {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM product");
+
+            List<Product> cates = new ArrayList<>();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                Float PurchasePrice = rs.getFloat("purchase_price");
+                Float SalePrice = rs.getFloat("sale_price") ;
+                int ProducerId = rs.getInt("producer_id");
+                int SubtypeId = rs.getInt("type_id");
+                int UnitId = rs.getInt("unit_id") ;
+                int DiscountId = rs.getInt("discount_id");
+                cates.add(new Product(id, name,PurchasePrice,SalePrice,ProducerId, SubtypeId,UnitId,DiscountId ));
+            }
+            return cates;
+        }
+    }
+    
     public List<ProductType> getProductType() throws SQLException {
         try (Connection conn = jdbcUtils.getConn()) {
             Statement stm = conn.createStatement();
@@ -323,4 +345,17 @@ public class ProductService {
                 
             }
     }  
+     //update 26/4
+    public boolean apdung(Product q) throws SQLException {
+        String q1 = "UPDATE product Set discount_id=? WHERE id = ?";
+
+         try (Connection conn = jdbcUtils.getConn()) {
+//             conn.setAutoCommit(false);
+            PreparedStatement stm1 = conn.prepareStatement(q1);
+            stm1.setInt(1, q.getDiscountId());
+            stm1.setInt(2, q.getId());
+             return stm1.executeUpdate()>0;
+
+            }
+    }
 }
